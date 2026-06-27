@@ -114,21 +114,35 @@ $json = $data | ConvertTo-Json -Depth 12
 [System.IO.File]::WriteAllText($dataPath, $json, (New-Object System.Text.UTF8Encoding($false)))
 Write-Host "Done. coreLive=$coreLive interest=$($interest.Count) new=$($new.Count) errors=$errors lastUpdated=$($data.meta.lastUpdated)"
 
-# --- Notification (ntfy.sh) — only when there are genuinely NEW roles, and only if a topic is configured ---
-$topic = $env:NTFY_TOPIC
-if ($topic -and $new.Count -gt 0) {
+# --- Notifications — only when there are genuinely NEW roles this run ---
+if ($new.Count -gt 0) {
   $lines = @()
   foreach ($id in $new) {
     $it = $liveItems | Where-Object { $_.id -eq $id } | Select-Object -First 1
     if ($it) { $lines += ("- {0}: {1}" -f $it.company, $it.title) }
   }
-  if ($lines.Count -gt 0) {
-    $body = "New Level 6 apprenticeship(s):`n" + ($lines -join "`n")
+  $msg = "New Level 6 apprenticeship(s) found:`n" + ($lines -join "`n")
+  $sent = $false
+
+  # Telegram (preferred) — needs TELEGRAM_BOT_TOKEN + TELEGRAM_CHAT_ID (stored as GitHub Secrets)
+  $tgToken = $env:TELEGRAM_BOT_TOKEN; $tgChat = $env:TELEGRAM_CHAT_ID
+  if ($tgToken -and $tgChat) {
     try {
-      Invoke-RestMethod -Uri "https://ntfy.sh/$topic" -Method Post -Body $body -Headers @{ Title = "New apprenticeship(s) found"; Tags = "mortar_board" } | Out-Null
-      Write-Host "Sent ntfy notification for $($new.Count) new role(s) to topic '$topic'."
+      Invoke-RestMethod -Uri "https://api.telegram.org/bot$tgToken/sendMessage" -Method Post -Body @{ chat_id = $tgChat; text = ("🎓 " + $msg) } | Out-Null
+      Write-Host "Sent Telegram notification ($($new.Count) new role(s))."; $sent = $true
+    } catch { Write-Host "Telegram notification failed: $_" }
+  }
+
+  # ntfy.sh (optional alternative) — needs NTFY_TOPIC
+  $topic = $env:NTFY_TOPIC
+  if ($topic) {
+    try {
+      Invoke-RestMethod -Uri "https://ntfy.sh/$topic" -Method Post -Body $msg -Headers @{ Title = "New apprenticeship(s) found"; Tags = "mortar_board" } | Out-Null
+      Write-Host "Sent ntfy notification to topic '$topic'."; $sent = $true
     } catch { Write-Host "ntfy notification failed: $_" }
   }
+
+  if (-not $sent) { Write-Host "New roles found but no notifier configured (set TELEGRAM_BOT_TOKEN+TELEGRAM_CHAT_ID, or NTFY_TOPIC)." }
 } else {
-  Write-Host "No notification sent (new=$($new.Count), topic set: $([bool]$topic))."
+  Write-Host "No new roles this run; no notification sent."
 }

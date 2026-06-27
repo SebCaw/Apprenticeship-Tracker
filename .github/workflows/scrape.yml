@@ -21,8 +21,11 @@ jobs:
         shell: pwsh
         run: ./scrape.ps1
         env:
-          # Set a repo Actions variable named NTFY_TOPIC to enable phone notifications.
-          # (Repo → Settings → Secrets and variables → Actions → Variables → New variable)
+          # Telegram notifications: add these as repo SECRETS (Settings → Secrets and variables → Actions → Secrets).
+          # The bot token is sensitive — it must be a Secret, never committed to the repo.
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          # Optional alternative — ntfy.sh topic as a repo Variable (not secret).
           NTFY_TOPIC: ${{ vars.NTFY_TOPIC }}
 
       - name: Commit updated data if changed
