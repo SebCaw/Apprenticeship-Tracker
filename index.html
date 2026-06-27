@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Degree Apprenticeship Tracker</title>
+<meta name="description" content="Live tracker for Level 6 degree apprenticeships in sales, finance and consulting at 12 major UK employers — auto-updated from GOV.UK twice daily.">
+<meta property="og:title" content="🎓 Degree Apprenticeship Tracker">
+<meta property="og:description" content="Live dashboard tracking sales, finance & consulting degree apprenticeships at 12 major employers, auto-updated from GOV.UK.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<style>
+  :root {
+    --bg: #0c0f0d;
+    --panel: #14181500;        /* base set on .panel surfaces below */
+    --panel: #141815;
+    --panel-2: #1b211c;
+    --border: #283029;
+    --text: #eef3ee;
+    --muted: #93a397;
+    --accent: #10b981;          /* emerald */
+    --accent-2: #34d399;        /* light emerald, for gradients */
+    --gold: #e6b450;            /* warm gold premium highlight */
+    --accent-rgb: 16,185,129;
+    --green: #34d399;
+    --amber: #f5b942;
+    --red: #ff6b6b;
+    --grey: #5d6b60;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.5;
+    position: relative;
+    min-height: 100vh;
+  }
+  /* Ambient slow-moving glow behind everything */
+  body::before {
+    content: ""; position: fixed; inset: -20% -10% auto -10%; height: 70vh; z-index: 0;
+    background:
+      radial-gradient(40% 50% at 20% 0%, rgba(16,185,129,0.10), transparent 70%),
+      radial-gradient(45% 55% at 85% 10%, rgba(230,180,80,0.07), transparent 70%);
+    filter: blur(20px);
+    animation: drift 18s ease-in-out infinite alternate;
+    pointer-events: none;
+  }
+  @keyframes drift {
+    0%   { transform: translate3d(0,0,0) scale(1); opacity:.9; }
+    100% { transform: translate3d(0,-3%,0) scale(1.08); opacity:1; }
+  }
+  a { color: var(--accent); text-decoration: none; transition: color .15s; }
+  a:hover { color: var(--accent-2); }
+  .wrap { max-width: 1280px; margin: 0 auto; padding: 24px; position: relative; z-index: 1; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+
+  /* Header */
+  header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 8px; }
+  h1 {
+    font-size: 27px; margin: 0; letter-spacing: -0.6px; font-weight: 750;
+    background: linear-gradient(100deg, var(--text) 0%, var(--accent-2) 30%, var(--gold) 55%, var(--text) 80%);
+    background-size: 220% auto;
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+    animation: shimmerText 9s linear infinite;
+  }
+  @keyframes shimmerText { to { background-position: 220% center; } }
+  .head-right { display: flex; align-items: center; gap: 14px; }
+  .updated { color: var(--muted); font-size: 13px; display: flex; align-items: center; gap: 8px; }
+  .checkbtn { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #06231a; font-weight: 650; border: none; padding: 8px 14px; border-radius: 9px; font-size: 13px; cursor: pointer; transition: transform .12s, box-shadow .2s, filter .2s, opacity .2s; }
+  .checkbtn:hover { filter: brightness(1.08); box-shadow: 0 6px 18px rgba(var(--accent-rgb),.35); transform: translateY(-1px); }
+  .checkbtn:active { transform: translateY(1px) scale(.97); }
+  .checkbtn:disabled { opacity: .6; cursor: default; transform: none; box-shadow: none; }
+  .check-msg { font-size: 13px; margin: 4px 0 0; min-height: 18px; }
+  .check-msg.ok { color: var(--green); }
+  .check-msg.err { color: var(--red); }
+  .check-msg.run { color: var(--muted); }
+  .pulse { width: 10px; height: 10px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 0 rgba(52,211,153,0.6); animation: pulse 2s infinite; }
+  .pulse.amber { background: var(--amber); box-shadow: 0 0 0 0 rgba(245,185,66,0.6); }
+  .pulse.red { background: var(--red); box-shadow: 0 0 0 0 rgba(255,107,107,0.6); animation: none; }
+  @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(52,211,153,0.5); } 70% { box-shadow: 0 0 0 9px rgba(52,211,153,0); } 100% { box-shadow: 0 0 0 0 rgba(52,211,153,0); } }
+
+  .sub { color: var(--muted); font-size: 13px; margin: 0 0 14px; }
+  .about { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; margin: 0 0 18px; overflow: hidden; }
+  .about summary { cursor: pointer; padding: 12px 16px; font-size: 13px; font-weight: 600; color: var(--text); list-style: none; user-select: none; }
+  .about summary::-webkit-details-marker { display: none; }
+  .about summary:hover { color: var(--accent-2); }
+  .about[open] summary { border-bottom: 1px solid var(--border); }
+  .about-body { padding: 14px 16px; font-size: 13px; color: var(--muted); }
+  .about-body p { margin: 0 0 10px; }
+  .about-body p:last-child { margin: 0; }
+  .about-body strong { color: var(--text); }
+
+  /* New banner — shimmering premium strip */
+  .new-banner {
+    position: relative; overflow: hidden;
+    background: linear-gradient(120deg, #133024, #16301f);
+    border: 1px solid #2e6b43; color: #c6f7d9;
+    padding: 13px 16px; border-radius: 12px; margin-bottom: 18px; font-size: 14px;
+    display: none; align-items: center; gap: 10px;
+    box-shadow: 0 6px 24px rgba(16,185,129,0.12);
+    animation: bannerIn .5s cubic-bezier(.2,.8,.2,1);
+  }
+  .new-banner.show { display: flex; }
+  .new-banner::after {
+    content: ""; position: absolute; top: 0; left: -60%; width: 50%; height: 100%;
+    background: linear-gradient(110deg, transparent, rgba(198,247,217,0.28), transparent);
+    transform: skewX(-18deg); animation: sheen 3.4s ease-in-out infinite;
+  }
+  @keyframes sheen { 0% { left:-60%; } 55%,100% { left:130%; } }
+  @keyframes bannerIn { from { opacity:0; transform: translateY(-6px); } to { opacity:1; transform:none; } }
+  .new-banner button { position: relative; z-index:1; margin-left: auto; background: transparent; border: 1px solid #2e6b43; color: #c6f7d9; padding: 4px 10px; border-radius: 6px; cursor: pointer; transition: background .15s; }
+  .new-banner button:hover { background: rgba(46,107,67,.4); }
+
+  /* Summary */
+  .summary { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
+  .stat {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 12px;
+    padding: 12px 16px; min-width: 120px; cursor: pointer;
+    transition: border-color .2s, transform .2s, box-shadow .2s, background .2s;
+  }
+  .stat:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 10px 26px rgba(0,0,0,.35); }
+  .stat.active { border-color: var(--accent); background: var(--panel-2); box-shadow: 0 0 0 1px var(--accent) inset, 0 8px 22px rgba(var(--accent-rgb),.18); }
+  .stat .n { font-size: 25px; font-weight: 750; font-variant-numeric: tabular-nums; }
+  .stat .l { font-size: 12px; color: var(--muted); }
+  .stat.predict { cursor: default; min-width: 200px; }
+  .stat.predict .n { color: var(--gold); }
+  .stat.predict:hover { border-color: var(--border); transform: none; box-shadow: none; }
+
+  /* Filters */
+  .filters { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; align-items: center; }
+  .filters label { font-size: 12px; color: var(--muted); margin-right: 6px; }
+  select, .seg { background: var(--panel); border: 1px solid var(--border); color: var(--text); border-radius: 8px; padding: 6px 10px; font-size: 13px; }
+  .seg-group { display: inline-flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .seg-group button { background: var(--panel); border: none; color: var(--muted); padding: 6px 12px; font-size: 13px; cursor: pointer; transition: background .2s, color .2s; }
+  .seg-group button:hover { color: var(--text); }
+  .seg-group button.active { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #06231a; font-weight: 600; }
+
+  /* Grid */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 16px; }
+  .card {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 14px;
+    overflow: hidden; display: flex; flex-direction: column; position: relative;
+    transition: transform .22s cubic-bezier(.2,.8,.2,1), box-shadow .22s, border-color .22s;
+  }
+  .card::before {
+    content: ""; position: absolute; inset: 0; border-radius: 14px; padding: 1px; pointer-events: none;
+    background: linear-gradient(135deg, rgba(var(--accent-rgb),.5), transparent 40%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+    opacity: 0; transition: opacity .22s;
+  }
+  .card:hover { transform: translateY(-5px); border-color: transparent; box-shadow: 0 16px 40px rgba(0,0,0,.45); }
+  .card:hover::before { opacity: 1; }
+  .card.animate-in { animation: cardIn .55s cubic-bezier(.2,.8,.2,1) both; }
+  @keyframes cardIn { from { opacity:0; transform: translateY(14px) scale(.985); } to { opacity:1; transform:none; } }
+  /* Skeleton loaders (shown while data.json is fetching) */
+  .skel-card { background: var(--panel); border: 1px solid var(--border); border-radius: 14px; padding: 16px; }
+  .skel-line { height: 12px; border-radius: 6px; margin-bottom: 10px; background: linear-gradient(90deg, var(--panel-2) 25%, #2a322c 37%, var(--panel-2) 63%); background-size: 400% 100%; animation: skelShimmer 1.4s ease infinite; }
+  .skel-line.title { height: 18px; width: 55%; margin-bottom: 14px; }
+  .skel-line.w85 { width: 85%; } .skel-line.w65 { width: 65%; } .skel-line.w40 { width: 40%; }
+  .skel-pill { height: 22px; width: 90px; border-radius: 20px; margin-top: 12px; background: linear-gradient(90deg, var(--panel-2) 25%, #2a322c 37%, var(--panel-2) 63%); background-size: 400% 100%; animation: skelShimmer 1.4s ease infinite; }
+  @keyframes skelShimmer { 0% { background-position: 100% 0; } 100% { background-position: 0 0; } }
+  @media (prefers-reduced-motion: reduce) { .skel-line, .skel-pill { animation: none; } }
+  .card-head { padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); }
+  .card-head .left { display: flex; align-items: center; gap: 10px; }
+  .dot { width: 12px; height: 12px; border-radius: 3px; box-shadow: 0 0 8px 0 rgba(255,255,255,.18); }
+  .card-head h3 { margin: 0; font-size: 17px; }
+  .tag { font-size: 10px; text-transform: uppercase; letter-spacing: .5px; color: var(--muted); border: 1px solid var(--border); padding: 2px 7px; border-radius: 20px; }
+  .predict-line { font-size: 12px; color: var(--muted); padding: 8px 16px 0; }
+  .links { display: flex; gap: 8px; flex-wrap: wrap; padding: 10px 16px; }
+  .links a { font-size: 12px; background: var(--panel-2); padding: 4px 9px; border-radius: 6px; border: 1px solid var(--border); }
+  .links a:hover { border-color: var(--accent); }
+
+  .program { border-top: 1px solid var(--border); padding: 12px 16px; }
+  .program .ptop { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+  .program .pname { font-weight: 600; font-size: 14px; }
+  .program .pmeta { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .badge { font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 20px; white-space: nowrap; }
+  .badge.open { background: rgba(52,211,153,.15); color: var(--green); animation: badgeGlow 2.4s ease-in-out infinite; }
+  @keyframes badgeGlow { 0%,100% { box-shadow: 0 0 0 0 rgba(52,211,153,0); } 50% { box-shadow: 0 0 12px 0 rgba(52,211,153,.45); } }
+  .badge.closing_soon { background: rgba(245,185,66,.15); color: var(--amber); }
+  .badge.closed { background: rgba(255,107,107,.15); color: var(--red); }
+  .badge.not_open { background: rgba(93,107,96,.2); color: var(--grey); }
+  .closing { font-size: 12px; color: var(--amber); margin-top: 6px; }
+
+  .track { margin-top: 10px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .track select { font-size: 12px; padding: 4px 8px; }
+  .applybtn { font-size: 12px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #06231a; font-weight: 600; border: none; padding: 5px 11px; border-radius: 7px; cursor: pointer; transition: transform .12s, box-shadow .2s, filter .2s; }
+  .applybtn:hover { filter: brightness(1.08); box-shadow: 0 6px 16px rgba(var(--accent-rgb),.35); transform: translateY(-1px); }
+  .applybtn:active { transform: translateY(1px) scale(.97); }
+  .links a { transition: border-color .15s, transform .15s, background .15s; }
+  .links a:hover { transform: translateY(-1px); }
+  .notes { width: 100%; margin-top: 8px; background: var(--panel-2); border: 1px solid var(--border); color: var(--text); border-radius: 6px; padding: 6px 8px; font-size: 12px; font-family: inherit; resize: vertical; min-height: 32px; transition: border-color .15s, box-shadow .15s; }
+  .notes:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(var(--accent-rgb),.15); }
+  .track select { transition: border-color .15s, box-shadow .15s; }
+  .track select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(var(--accent-rgb),.15); }
+  .applied-date { font-size: 11px; color: var(--green); }
+
+  /* Timeline */
+  .timeline { margin-top: 32px; background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 18px; }
+  .timeline h2 { font-size: 16px; margin: 0 0 14px; }
+  .tl-grid { display: grid; grid-template-columns: 130px repeat(7, 1fr); gap: 4px 0; align-items: center; }
+  .tl-month { font-size: 11px; color: var(--muted); text-align: center; padding-bottom: 6px; }
+  .tl-name { font-size: 12px; padding-right: 8px; }
+  .tl-row { position: relative; grid-column: 2 / span 7; height: 18px; }
+  .tl-bar { position: absolute; height: 14px; top: 2px; border-radius: 7px; opacity: .85; transform-origin: left center; }
+  .tl-bar.grow { animation: barGrow .8s cubic-bezier(.2,.8,.2,1) both; }
+  @keyframes barGrow { from { transform: scaleX(0); opacity:0; } to { transform: scaleX(1); opacity:.85; } }
+
+  /* Might spark your interest */
+  .interest { margin-top: 32px; background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 18px; position: relative; overflow: hidden; }
+  .interest::before {
+    content: ""; position: absolute; inset: 0 0 auto 0; height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--gold), var(--accent-2));
+    background-size: 200% auto; animation: shimmerText 6s linear infinite;
+  }
+  .interest h2 { font-size: 16px; margin: 0 0 4px; }
+  .interest-sub { color: var(--muted); font-size: 12px; margin: 0 0 14px; }
+  .irow { display: flex; align-items: center; gap: 12px; padding: 11px 12px; border: 1px solid var(--border); border-radius: 10px; margin-bottom: 8px; transition: border-color .18s, transform .18s, background .18s; }
+  .irow:hover { border-color: var(--accent); transform: translateX(3px); background: var(--panel-2); }
+  .irow .imain { flex: 1; min-width: 0; }
+  .irow .ititle { font-weight: 600; font-size: 14px; }
+  .irow .imeta { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .irow .icat { font-size: 10px; text-transform: uppercase; letter-spacing: .5px; color: var(--gold); border: 1px solid rgba(230,180,80,.35); padding: 2px 8px; border-radius: 20px; white-space: nowrap; }
+  .irow .iclose { font-size: 12px; color: var(--amber); white-space: nowrap; }
+  .irow a.iapply { font-size: 12px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #06231a; font-weight: 600; padding: 5px 11px; border-radius: 7px; white-space: nowrap; }
+  .irow a.iapply:hover { filter: brightness(1.08); }
+  .interest-empty { color: var(--muted); font-size: 13px; padding: 14px 4px; }
+  .footer { text-align: center; color: var(--muted); font-size: 12px; margin: 28px 0 8px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>🎓 Degree Apprenticeship Tracker</h1>
+    <div class="head-right">
+      <div class="updated"><span class="pulse" id="pulse"></span><span id="updatedTxt">—</span></div>
+    </div>
+  </header>
+  <p class="sub">Level 6 degree apprenticeships · sales, finance &amp; consulting roles · 12 target employers · GOV.UK checked twice daily (10am &amp; 6pm)</p>
+
+  <details class="about">
+    <summary>ℹ️ About this project</summary>
+    <div class="about-body">
+      <p>A live dashboard that automatically tracks <strong>Level 6 degree apprenticeships</strong> in sales, finance and consulting at 12 major employers (Microsoft, Amazon, HSBC, Goldman Sachs, PwC, Deloitte and more).</p>
+      <p>A scheduled job runs in the cloud <strong>twice a day</strong>, scrapes the UK Government's official <em>Find an Apprenticeship</em> register, filters out technical roles, flags large-employer opportunities worth a look, and updates this page — so new openings surface the moment they go live.</p>
+      <p><strong>Built with:</strong> HTML/CSS/JavaScript front-end · GitHub Actions for scheduled cloud scraping · GOV.UK data · hosted on GitHub Pages. Your application progress is saved privately in your own browser.</p>
+    </div>
+  </details>
+
+  <div class="new-banner" id="newBanner">
+    <span id="newBannerTxt"></span>
+    <button onclick="dismissNew()">Got it</button>
+  </div>
+
+  <div class="summary" id="summary"></div>
+
+  <div class="filters">
+    <div><label>Sector</label>
+      <span class="seg-group" id="sectorSeg">
+        <button data-v="all" class="active">All</button>
+        <button data-v="tech">Tech</button>
+        <button data-v="finance">Finance</button>
+        <button data-v="consulting">Consulting</button>
+      </span>
+    </div>
+    <div><label>Closing within</label>
+      <select id="closingFilter">
+        <option value="any">Any</option>
+        <option value="7">7 days</option>
+        <option value="14">14 days</option>
+        <option value="30">30 days</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="grid" id="grid"></div>
+
+  <div class="timeline">
+    <h2>📅 Typical application windows</h2>
+    <div class="tl-grid" id="timeline"></div>
+  </div>
+
+  <div class="interest" id="interestSection">
+    <h2>✨ Might spark your interest</h2>
+    <p class="interest-sub">Other live Level 6 degree apprenticeships at large companies — sales, consulting, tech &amp; business roles — found on GOV.UK that aren't on your core list.</p>
+    <div id="interestList"></div>
+  </div>
+
+  <div class="footer">
+    GOV.UK checked twice daily via an automated cloud job. Data refreshes when you reopen this tab.<br>
+    Built by Sebastian Cawthorne · 2026 · <a href="https://github.com/YOUR_GITHUB_USERNAME/apprenticeship-tracker" target="_blank">source on GitHub ↗</a>
+  </div>
+</div>
+
+<script>
+const MONTHS = ["Aug","Sep","Oct","Nov","Dec","Jan","Feb"];
+const MONTH_NUM = [8,9,10,11,12,1,2];
+const STATUS_OPTS = ["watching","applied","interview","offer","rejected","not_applying"];
+const STATUS_LABEL = { watching:"👀 Watching", applied:"✅ Applied", interview:"🗣️ Interview", offer:"🎉 Offer", rejected:"❌ Rejected", not_applying:"🚫 Not applying" };
+
+let activeSector = "all";
+let activeStatFilter = null;   // "open" | "closing_soon" | "applied" | "watching"
+let closingWithin = "any";
+let firstRender = true;        // entrance animations + count-up run on first paint only
+const prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+// Animated count-up for the summary numbers
+function countUp(el, target){
+  if(prefersReduced || target <= 0){ el.textContent = target; return; }
+  const dur = 650, start = performance.now();
+  function step(now){
+    const t = Math.min(1, (now - start) / dur);
+    const eased = 1 - Math.pow(1 - t, 3);
+    el.textContent = Math.round(eased * target);
+    if(t < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+// ---------- localStorage user tracking ----------
+function userKey(pid){ return "appr_user_" + pid; }
+function getUser(pid){
+  try { return JSON.parse(localStorage.getItem(userKey(pid))) || { userStatus:"watching", userAppliedDate:null, userNotes:"" }; }
+  catch(e){ return { userStatus:"watching", userAppliedDate:null, userNotes:"" }; }
+}
+function setUser(pid, data){ localStorage.setItem(userKey(pid), JSON.stringify(data)); }
+
+// ---------- helpers ----------
+function daysUntil(iso){ if(!iso) return null; const d=(new Date(iso)-new Date())/86400000; return Math.ceil(d); }
+function fmtDate(iso){ if(!iso) return ""; return new Date(iso).toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"}); }
+function todayISO(){ return new Date().toISOString().slice(0,10); }
+
+// Effective live status (recompute closing_soon from closingDate)
+function liveStatus(p){
+  if(p.status === "open" || p.status === "closing_soon"){
+    const d = daysUntil(p.closingDate);
+    if(d !== null && d < 0) return "closed";
+    if(d !== null && d <= 14) return "closing_soon";
+    return "open";
+  }
+  return p.status || "not_open";
+}
+const BADGE_TXT = { open:"🟢 Open", closing_soon:"🟡 Closing soon", closed:"🔴 Closed", not_open:"⚪ Not yet open" };
+
+// Predicted next opening from historical cycles
+function predictOpen(company){
+  if(!company.historicalCycles || !company.historicalCycles.length) return null;
+  const m = Math.round(company.historicalCycles.reduce((s,c)=>s+c.openedMonth,0)/company.historicalCycles.length);
+  const now = new Date();
+  let year = now.getFullYear();
+  if(now.getMonth()+1 > m) year++;            // window for this year already passed
+  const target = new Date(year, m-1, 1);
+  const days = Math.ceil((target - now)/86400000);
+  return { month: m, days };
+}
+const MN = ["","January","February","March","April","May","June","July","August","September","October","November","December"];
+
+// ---------- render ----------
+function render(){
+  const data = window.TRACKER_DATA;
+  const meta = data.meta;
+
+  // Header freshness — before activeFrom, show a calm "scheduled" state instead of a stale warning
+  const pulse = document.getElementById("pulse");
+  const notYetActive = meta.activeFrom && new Date() < new Date(meta.activeFrom + "T00:00:00");
+  if(notYetActive){
+    pulse.className = "pulse amber";
+    const d = new Date(meta.activeFrom + "T00:00:00");
+    document.getElementById("updatedTxt").textContent = "Checks begin " + d.toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"});
+  } else {
+    const ageH = (new Date() - new Date(meta.lastUpdated)) / 3600000;
+    pulse.className = "pulse" + (ageH > 24 ? " red" : ageH > 12 ? " amber" : "");
+    document.getElementById("updatedTxt").textContent = "Updated " + relTime(meta.lastUpdated);
+  }
+
+  // New banner — only show IDs not yet acknowledged
+  const ackd = JSON.parse(localStorage.getItem("appr_ackedNew") || "[]");
+  const freshNew = (meta.newSinceLastScrape || []).filter(id => !ackd.includes(id));
+  const nb = document.getElementById("newBanner");
+  if(freshNew.length){
+    nb.classList.add("show");
+    document.getElementById("newBannerTxt").textContent = "🔔 " + freshNew.length + " new listing" + (freshNew.length>1?"s":"") + " since your last visit!";
+  } else { nb.classList.remove("show"); }
+
+  // Stats
+  let open=0, closingSoon=0, applied=0, watching=0;
+  data.companies.forEach(c => c.programs.forEach(p => {
+    const s = liveStatus(p);
+    if(s === "open") open++;
+    if(s === "closing_soon"){ closingSoon++; open++; }
+    const u = getUser(p.id);
+    if(u.userStatus === "applied") applied++;
+    if(u.userStatus === "watching") watching++;
+  }));
+
+  // Next predicted opening across companies
+  let nextP = null;
+  data.companies.forEach(c => {
+    const pr = predictOpen(c);
+    if(pr && pr.days >= 0 && (!nextP || pr.days < nextP.days)) nextP = { name:c.name, days:pr.days };
+  });
+
+  const summary = document.getElementById("summary");
+  summary.innerHTML = "";
+  summary.appendChild(statEl("open", open, "Open now"));
+  summary.appendChild(statEl("closing_soon", closingSoon, "Closing ≤14 days"));
+  summary.appendChild(statEl("applied", applied, "Applied"));
+  summary.appendChild(statEl("watching", watching, "Watching"));
+  const pEl = document.createElement("div");
+  pEl.className = "stat predict";
+  pEl.innerHTML = nextP
+    ? `<div class="n" style="font-size:18px">${nextP.name}</div><div class="l">Next predicted opening · ~${nextP.days} days</div>`
+    : `<div class="n" style="font-size:18px">—</div><div class="l">Next predicted opening</div>`;
+  summary.appendChild(pEl);
+
+  // Grid
+  const grid = document.getElementById("grid");
+  grid.innerHTML = "";
+  let cardIdx = 0;
+  data.companies.forEach(c => {
+    if(activeSector !== "all" && c.sector !== activeSector) return;
+
+    // Filter programs by active stat + closing window
+    const progs = c.programs.filter(p => {
+      const s = liveStatus(p);
+      const u = getUser(p.id);
+      if(activeStatFilter === "open" && !(s==="open"||s==="closing_soon")) return false;
+      if(activeStatFilter === "closing_soon" && s!=="closing_soon") return false;
+      if(activeStatFilter === "applied" && u.userStatus!=="applied") return false;
+      if(activeStatFilter === "watching" && u.userStatus!=="watching") return false;
+      if(closingWithin !== "any"){
+        const d = daysUntil(p.closingDate);
+        if(d === null || d > +closingWithin || d < 0) return false;
+      }
+      return true;
+    });
+    if(!progs.length) return;
+
+    const card = document.createElement("div");
+    card.className = "card";
+    const pr = predictOpen(c);
+    card.innerHTML = `
+      <div class="card-head">
+        <div class="left"><span class="dot" style="background:${c.color}"></span><h3>${c.name}</h3></div>
+        <span class="tag">${c.sector}</span>
+      </div>
+      ${pr ? `<div class="predict-line">Typically opens ~${MN[pr.month]}${pr.days>=0?` · in ~${pr.days} days`:""}</div>`:""}
+      <div class="links">
+        <a href="${c.govSearchUrl}" target="_blank">Gov ↗</a>
+        <a href="https://www.ucas.com/explore/search/courses-beta?query=${encodeURIComponent(c.name)}" target="_blank">UCAS ↗</a>
+        <a href="https://higherin.com/search-jobs/degree-apprenticeship" target="_blank">Higherin ↗</a>
+        <a href="${c.careerUrl}" target="_blank">Careers ↗</a>
+      </div>
+    `;
+    progs.forEach(p => card.appendChild(programEl(p)));
+    if(firstRender && !prefersReduced){
+      card.classList.add("animate-in");
+      card.style.animationDelay = (cardIdx * 60) + "ms";
+    }
+    cardIdx++;
+    grid.appendChild(card);
+  });
+  if(!grid.children.length){
+    grid.innerHTML = `<div style="color:var(--muted);padding:40px;text-align:center;grid-column:1/-1">No programs match these filters.</div>`;
+  }
+
+  renderTimeline();
+  renderInterest();
+  firstRender = false;
+}
+
+function renderInterest(){
+  const list = document.getElementById("interestList");
+  const items = (window.TRACKER_DATA.interestListings || []).slice();
+  // Sort: soonest closing date first, undated last
+  items.sort((a,b)=>{
+    const da = a.closingDate ? new Date(a.closingDate) : Infinity;
+    const db = b.closingDate ? new Date(b.closingDate) : Infinity;
+    return da - db;
+  });
+  if(!items.length){
+    list.innerHTML = `<div class="interest-empty">Nothing extra right now — the next 10am / 6pm check will add any new sales, consulting, tech or business Level 6 apprenticeships it spots at large companies.</div>`;
+    return;
+  }
+  list.innerHTML = "";
+  items.forEach(it => {
+    const d = daysUntil(it.closingDate);
+    const row = document.createElement("div");
+    row.className = "irow";
+    row.innerHTML = `
+      <div class="imain">
+        <div class="ititle">${it.company ? it.company + " — " : ""}${it.title || "Apprenticeship"}</div>
+        <div class="imeta">${[it.standard || "Level 6", it.location, it.salary].filter(Boolean).join(" · ")}</div>
+      </div>
+      ${it.category ? `<span class="icat">${it.category}</span>` : ""}
+      ${it.closingDate ? `<span class="iclose">${d!==null&&d>=0?d+"d left":"closed"}</span>` : ""}
+      ${it.applyUrl ? `<a class="iapply" href="${it.applyUrl}" target="_blank">View ↗</a>` : ""}
+    `;
+    list.appendChild(row);
+  });
+}
+
+function statEl(key, n, label){
+  const el = document.createElement("div");
+  el.className = "stat" + (activeStatFilter===key ? " active":"");
+  el.innerHTML = `<div class="n">0</div><div class="l">${label}</div>`;
+  const nEl = el.querySelector(".n");
+  if(firstRender) countUp(nEl, n); else nEl.textContent = n;
+  el.onclick = () => { activeStatFilter = activeStatFilter===key ? null : key; render(); };
+  return el;
+}
+
+function programEl(p){
+  const s = liveStatus(p);
+  const u = getUser(p.id);
+  const d = daysUntil(p.closingDate);
+  const el = document.createElement("div");
+  el.className = "program";
+  el.innerHTML = `
+    <div class="ptop">
+      <div>
+        <div class="pname">${p.name}</div>
+        <div class="pmeta">${p.standard} · ${p.location} · ${p.salary} · ${p.duration}</div>
+      </div>
+      <span class="badge ${s}">${BADGE_TXT[s]}</span>
+    </div>
+    ${p.closingDate ? `<div class="closing">Closes ${fmtDate(p.closingDate)}${d!==null&&d>=0?` · ${d} day${d!==1?"s":""} left`:""}</div>`:""}
+    ${p.applyUrl ? `<div style="margin-top:6px"><a href="${p.applyUrl}" target="_blank">Apply / view listing ↗</a></div>`:""}
+  `;
+  const track = document.createElement("div");
+  track.className = "track";
+  const sel = document.createElement("select");
+  STATUS_OPTS.forEach(o => { const op=document.createElement("option"); op.value=o; op.textContent=STATUS_LABEL[o]; if(o===u.userStatus) op.selected=true; sel.appendChild(op); });
+  sel.onchange = () => { const nu=getUser(p.id); nu.userStatus=sel.value; if(sel.value==="applied"&&!nu.userAppliedDate) nu.userAppliedDate=todayISO(); setUser(p.id,nu); render(); };
+  track.appendChild(sel);
+
+  const ab = document.createElement("button");
+  ab.className = "applybtn"; ab.textContent = "Mark applied today";
+  ab.onclick = () => { const nu=getUser(p.id); nu.userStatus="applied"; nu.userAppliedDate=todayISO(); setUser(p.id,nu); render(); };
+  track.appendChild(ab);
+
+  if(u.userStatus==="applied" && u.userAppliedDate){
+    const ad = document.createElement("span");
+    ad.className = "applied-date"; ad.textContent = "Applied " + fmtDate(u.userAppliedDate);
+    track.appendChild(ad);
+  }
+  el.appendChild(track);
+
+  const notes = document.createElement("textarea");
+  notes.className = "notes"; notes.placeholder = "Notes…"; notes.maxLength = 500; notes.value = u.userNotes || "";
+  notes.onblur = () => { const nu=getUser(p.id); nu.userNotes=notes.value; setUser(p.id,nu); };
+  el.appendChild(notes);
+  return el;
+}
+
+function renderTimeline(){
+  const tl = document.getElementById("timeline");
+  tl.innerHTML = `<div class="tl-name"></div>` + MONTHS.map(m=>`<div class="tl-month">${m}</div>`).join("");
+  window.TRACKER_DATA.companies.forEach(c => {
+    if(activeSector!=="all" && c.sector!==activeSector) return;
+    if(!c.historicalCycles || !c.historicalCycles.length) return;
+    const openM = Math.round(c.historicalCycles.reduce((s,x)=>s+x.openedMonth,0)/c.historicalCycles.length);
+    const closeM = Math.round(c.historicalCycles.reduce((s,x)=>s+x.closedMonth,0)/c.historicalCycles.length);
+    const oi = MONTH_NUM.indexOf(openM), ci = MONTH_NUM.indexOf(closeM);
+    if(oi<0) return;
+    const span = (ci<0?oi:ci) - oi + 1;
+    const name = document.createElement("div"); name.className="tl-name"; name.textContent=c.name;
+    const row = document.createElement("div"); row.className="tl-row";
+    const bar = document.createElement("div"); bar.className="tl-bar" + (firstRender && !prefersReduced ? " grow" : "");
+    bar.style.background = c.color;
+    bar.style.left = (oi/7*100) + "%";
+    bar.style.width = (Math.max(span,1)/7*100) + "%";
+    bar.title = `${c.name}: ~${MN[openM]} – ${MN[closeM]}`;
+    row.appendChild(bar);
+    tl.appendChild(name); tl.appendChild(row);
+  });
+}
+
+function relTime(iso){
+  const s = (new Date()-new Date(iso))/1000;
+  if(s<60) return "just now";
+  if(s<3600) return Math.floor(s/60)+" min ago";
+  if(s<86400) return Math.floor(s/3600)+" h ago";
+  return Math.floor(s/86400)+" day(s) ago";
+}
+
+function dismissNew(){
+  const meta = window.TRACKER_DATA.meta;
+  localStorage.setItem("appr_ackedNew", JSON.stringify(meta.newSinceLastScrape||[]));
+  render();
+}
+
+// Filter wiring
+document.getElementById("sectorSeg").addEventListener("click", e => {
+  if(e.target.tagName!=="BUTTON") return;
+  document.querySelectorAll("#sectorSeg button").forEach(b=>b.classList.remove("active"));
+  e.target.classList.add("active"); activeSector = e.target.dataset.v; render();
+});
+document.getElementById("closingFilter").addEventListener("change", e => { closingWithin = e.target.value; render(); });
+
+// Skeleton placeholders shown while data.json is fetching
+function renderSkeletons(n){
+  const grid = document.getElementById("grid");
+  grid.innerHTML = "";
+  for(let i=0; i<(n||6); i++){
+    const c = document.createElement("div");
+    c.className = "skel-card";
+    c.innerHTML = '<div class="skel-line title"></div><div class="skel-line w85"></div><div class="skel-line w65"></div><div class="skel-line w40"></div><div class="skel-pill"></div>';
+    grid.appendChild(c);
+  }
+}
+
+// Load data.json (refreshed by the cloud job) and render. Re-fetch when the tab regains focus.
+let dataLoadedOnce = false;
+async function loadData(){
+  if(!dataLoadedOnce) renderSkeletons(6);   // only show skeletons on the first load, not on focus refreshes
+  try {
+    const r = await fetch("data.json?t=" + Date.now(), { cache: "no-store" });
+    window.TRACKER_DATA = await r.json();
+    dataLoadedOnce = true;
+    render();
+  } catch(e){
+    document.getElementById("grid").innerHTML =
+      '<div style="color:var(--muted);padding:40px;text-align:center;grid-column:1/-1">Couldn’t load data.json. If viewing locally, open via a web server rather than the file directly.</div>';
+  }
+}
+document.addEventListener("visibilitychange", () => { if(!document.hidden) loadData(); });
+
+loadData();
+</script>
+</body>
+</html>
