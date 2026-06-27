@@ -200,6 +200,26 @@
   .track select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(var(--accent-rgb),.15); }
   .applied-date { font-size: 11px; color: var(--green); }
 
+  /* Charts */
+  .charts { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
+  .chart { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 18px; }
+  .chart h3 { margin: 0 0 14px; font-size: 15px; }
+  .bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 12px; }
+  .bar-row .blab { width: 110px; color: var(--muted); flex-shrink: 0; }
+  .bar-track { flex: 1; background: var(--panel-2); border-radius: 6px; height: 16px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 6px; width: 0; transition: width .8s cubic-bezier(.2,.8,.2,1); }
+  .bar-row .bval { width: 22px; text-align: right; font-variant-numeric: tabular-nums; }
+
+  /* About me */
+  .aboutme { margin-top: 32px; background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+  .aboutme h2 { margin: 0 0 6px; font-size: 16px; }
+  .aboutme .am-head { font-weight: 650; color: var(--text); margin: 0 0 10px; }
+  .aboutme p { color: var(--muted); font-size: 13px; margin: 0 0 12px; line-height: 1.6; }
+  .am-skills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+  .am-skills span { font-size: 11px; background: var(--panel-2); border: 1px solid var(--border); padding: 4px 10px; border-radius: 20px; color: var(--text); }
+  .am-links a { font-size: 13px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #06231a; font-weight: 600; padding: 7px 13px; border-radius: 8px; }
+  .am-links a:hover { filter: brightness(1.08); }
+
   /* Timeline */
   .timeline { margin-top: 32px; background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 18px; }
   .timeline h2 { font-size: 16px; margin: 0 0 14px; }
@@ -280,6 +300,11 @@
 
   <div class="grid" id="grid"></div>
 
+  <div class="charts">
+    <div class="chart"><h3>📊 Opportunity status</h3><div id="statusChart"></div></div>
+    <div class="chart"><h3>🎯 My application funnel</h3><div id="funnelChart"></div></div>
+  </div>
+
   <div class="timeline">
     <h2>📅 Typical application windows</h2>
     <div class="tl-grid" id="timeline"></div>
@@ -289,6 +314,18 @@
     <h2>✨ Might spark your interest</h2>
     <p class="interest-sub">Other live Level 6 degree apprenticeships at large companies — sales, consulting, tech &amp; business roles — found on GOV.UK that aren't on your core list.</p>
     <div id="interestList"></div>
+  </div>
+
+  <div class="aboutme">
+    <h2>About me</h2>
+    <p class="am-head">Sebastian Cawthorne — [Year 13 student seeking a Level 6 degree apprenticeship in sales, finance or consulting]</p>
+    <p>[2-3 sentence bio: who you are, what you're looking for, and why. e.g. "I'm a sixth-form student with a strong interest in client-facing business roles. I built this tracker to monitor degree apprenticeship openings across major employers — and to demonstrate the kind of initiative and problem-solving I'd bring to a team."]</p>
+    <div class="am-skills">
+      <span>[Skill 1]</span><span>[Skill 2]</span><span>[Skill 3]</span><span>[Skill 4]</span><span>[Skill 5]</span>
+    </div>
+    <div class="am-links">
+      <a href="[YOUR LINKEDIN URL]" target="_blank">Connect on LinkedIn ↗</a>
+    </div>
   </div>
 
   <div class="footer">
@@ -471,7 +508,36 @@ function render(){
 
   renderTimeline();
   renderInterest();
+  renderCharts();
   firstRender = false;
+}
+
+function barRow(label, value, max, color){
+  const pct = max > 0 ? Math.round(value / max * 100) : 0;
+  return `<div class="bar-row"><span class="blab">${label}</span><span class="bar-track"><span class="bar-fill" style="width:${pct}%;background:${color}"></span></span><span class="bval">${value}</span></div>`;
+}
+
+function renderCharts(){
+  const data = window.TRACKER_DATA;
+  const st = { open:0, closing_soon:0, not_open:0, closed:0 };
+  const fn = { watching:0, applied:0, interview:0, offer:0, rejected:0 };
+  data.companies.forEach(c => c.programs.forEach(p => {
+    const s = liveStatus(p); if(st[s] !== undefined) st[s]++;
+    const u = getUser(p.id); if(fn[u.userStatus] !== undefined) fn[u.userStatus]++;
+  }));
+  const stMax = Math.max(1, st.open, st.closing_soon, st.not_open, st.closed);
+  const fnMax = Math.max(1, fn.watching, fn.applied, fn.interview, fn.offer, fn.rejected);
+  document.getElementById("statusChart").innerHTML =
+    barRow("🟢 Open", st.open, stMax, "var(--green)") +
+    barRow("🟡 Closing soon", st.closing_soon, stMax, "var(--amber)") +
+    barRow("⚪ Not yet open", st.not_open, stMax, "var(--grey)") +
+    barRow("🔴 Closed", st.closed, stMax, "var(--red)");
+  document.getElementById("funnelChart").innerHTML =
+    barRow("👀 Watching", fn.watching, fnMax, "var(--muted)") +
+    barRow("✅ Applied", fn.applied, fnMax, "var(--accent)") +
+    barRow("🗣️ Interview", fn.interview, fnMax, "var(--gold)") +
+    barRow("🎉 Offer", fn.offer, fnMax, "var(--green)") +
+    barRow("❌ Rejected", fn.rejected, fnMax, "var(--red)");
 }
 
 function renderInterest(){

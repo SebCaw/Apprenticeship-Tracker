@@ -53,6 +53,7 @@ $data = [System.IO.File]::ReadAllText($dataPath, [System.Text.Encoding]::UTF8) |
 $today = (Get-Date).ToString('yyyy-MM-dd')
 $seen = @(); if ($data.meta.seenVacancyIds) { $seen = @($data.meta.seenVacancyIds) }
 $errors = 0; $coreLive = 0; $coreIds = @{}
+$liveItems = @()   # {id, company, title} for everything found this run (for notifications)
 
 foreach ($co in $data.companies) {
   $html = Fetch-Html $co.govSearchUrl
@@ -69,6 +70,7 @@ foreach ($co in $data.companies) {
     $progs = @()
     foreach ($v in ($matched | Sort-Object { if ($_.closeISO) { [datetime]$_.closeISO } else { [datetime]::MaxValue } })) {
       $coreIds[$v.id] = $true; $coreLive++
+      $liveItems += [pscustomobject]@{ id=$v.id; company=$co.name; title=$v.title }
       $progs += [pscustomobject]@{
         id=$v.id; name=$v.title; standard="Level 6"; location=$v.location; salary=$null; duration=""
         status=(Status-From $v.closeISO); closingDate=$v.closeISO
@@ -92,6 +94,7 @@ foreach ($term in $terms) {
     if ($v.employer.ToLower() -notmatch $BIG) { continue }
     if ($v.closeISO -and ([datetime]$v.closeISO -lt (Get-Date))) { continue }
     $seenInterest[$v.id] = $true
+    $liveItems += [pscustomobject]@{ id=$v.id; company=$v.employer; title=$v.title }
     $interest += [pscustomobject]@{
       id=$v.id; company=$v.employer; title=$v.title; standard="Level 6"; location=$v.location; salary=$null
       category=(Category-From $v.title); closingDate=$v.closeISO
@@ -110,3 +113,22 @@ $data.meta.newSinceLastScrape = @($new)
 $json = $data | ConvertTo-Json -Depth 12
 [System.IO.File]::WriteAllText($dataPath, $json, (New-Object System.Text.UTF8Encoding($false)))
 Write-Host "Done. coreLive=$coreLive interest=$($interest.Count) new=$($new.Count) errors=$errors lastUpdated=$($data.meta.lastUpdated)"
+
+# --- Notification (ntfy.sh) — only when there are genuinely NEW roles, and only if a topic is configured ---
+$topic = $env:NTFY_TOPIC
+if ($topic -and $new.Count -gt 0) {
+  $lines = @()
+  foreach ($id in $new) {
+    $it = $liveItems | Where-Object { $_.id -eq $id } | Select-Object -First 1
+    if ($it) { $lines += ("- {0}: {1}" -f $it.company, $it.title) }
+  }
+  if ($lines.Count -gt 0) {
+    $body = "New Level 6 apprenticeship(s):`n" + ($lines -join "`n")
+    try {
+      Invoke-RestMethod -Uri "https://ntfy.sh/$topic" -Method Post -Body $body -Headers @{ Title = "New apprenticeship(s) found"; Tags = "mortar_board" } | Out-Null
+      Write-Host "Sent ntfy notification for $($new.Count) new role(s) to topic '$topic'."
+    } catch { Write-Host "ntfy notification failed: $_" }
+  }
+} else {
+  Write-Host "No notification sent (new=$($new.Count), topic set: $([bool]$topic))."
+}

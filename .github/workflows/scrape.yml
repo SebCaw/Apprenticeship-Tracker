@@ -20,6 +20,10 @@ jobs:
       - name: Run GOV.UK scraper (PowerShell)
         shell: pwsh
         run: ./scrape.ps1
+        env:
+          # Set a repo Actions variable named NTFY_TOPIC to enable phone notifications.
+          # (Repo → Settings → Secrets and variables → Actions → Variables → New variable)
+          NTFY_TOPIC: ${{ vars.NTFY_TOPIC }}
 
       - name: Commit updated data if changed
         run: |
