@@ -2,7 +2,7 @@
 
 A live dashboard that automatically tracks **Level 6 degree apprenticeships** in **sales, finance and consulting** at 12 major employers — and surfaces other large-employer opportunities worth a look.
 
-**🔗 Live site:** https://YOUR_GITHUB_USERNAME.github.io/apprenticeship-tracker/
+**🔗 Live site:** https://SebCaw.github.io/apprenticeship-tracker/
 
 > Built by Sebastian Cawthorne, 2026.
 
