@@ -128,7 +128,7 @@ if ($new.Count -gt 0) {
   $tgToken = $env:TELEGRAM_BOT_TOKEN; $tgChat = $env:TELEGRAM_CHAT_ID
   if ($tgToken -and $tgChat) {
     try {
-      Invoke-RestMethod -Uri "https://api.telegram.org/bot$tgToken/sendMessage" -Method Post -Body @{ chat_id = $tgChat; text = ("🎓 " + $msg) } | Out-Null
+      Invoke-RestMethod -Uri "https://api.telegram.org/bot$tgToken/sendMessage" -Method Post -Body @{ chat_id = $tgChat; text = $msg } | Out-Null
       Write-Host "Sent Telegram notification ($($new.Count) new role(s))."; $sent = $true
     } catch { Write-Host "Telegram notification failed: $_" }
   }
