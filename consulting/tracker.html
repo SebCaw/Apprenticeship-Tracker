@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" data-page="tracker">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consulting Degree Apprenticeship Tracker</title>
+<meta name="description" content="Live tracker for Level 6 degree apprenticeships in consulting, audit and advisory at 7 major UK firms - auto-updated from GOV.UK twice daily.">
+<meta property="og:title" content="Consulting Degree Apprenticeship Tracker">
+<meta property="og:description" content="Live tracker for Level 6 degree apprenticeships in consulting, audit and advisory at 7 major UK firms - auto-updated from GOV.UK twice daily.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Newsreader:opsz,wght@16..72,400;16..72,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/tracker.css">
+<script src="../assets/theme.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Consulting Degree Apprenticeship Tracker</h1>
+    <div class="head-right">
+      <div class="updated"><span class="pulse" id="pulse"></span><span id="updatedTxt">&mdash;</span></div>
+      <div class="theme-toggle" role="group" aria-label="Colour theme">
+        <button data-theme-btn="light" aria-label="Light mode">Light</button>
+        <button data-theme-btn="dark" aria-label="Dark mode">Dark</button>
+      </div>
+      <a class="aboutbtn" href="index.html">About me</a>
+    </div>
+  </header>
+  <p class="sub">Level 6 degree apprenticeships &middot; consulting, audit &amp; advisory roles &middot; 7 target firms &middot; GOV.UK checked twice daily (10am &amp; 6pm)</p>
+
+  <details class="about">
+    <summary>About this project</summary>
+    <div class="about-body">
+      <p>A live dashboard that automatically tracks <strong>Level 6 degree apprenticeships</strong> in consulting, audit and advisory at 7 major firms (PwC, Deloitte, EY, KPMG, Accenture and more).</p>
+      <p>A scheduled job runs in the cloud <strong>twice a day</strong>, scrapes the UK Government's official <em>Find an Apprenticeship</em> register, filters out technical roles, flags large-employer opportunities worth a look, and updates this page &mdash; so new openings surface the moment they go live.</p>
+      <p><strong>Built with:</strong> HTML/CSS/JavaScript front-end &middot; GitHub Actions for scheduled cloud scraping &middot; GOV.UK data &middot; hosted on GitHub Pages. Your application progress is saved privately in your own browser.</p>
+    </div>
+  </details>
+
+  <div class="new-banner" id="newBanner">
+    <span id="newBannerTxt"></span>
+    <button onclick="dismissNew()">Got it</button>
+  </div>
+
+  <div class="summary" id="summary"></div>
+
+  <div class="filters">
+    <div><label>Closing within</label>
+      <select id="closingFilter">
+        <option value="any">Any</option>
+        <option value="7">7 days</option>
+        <option value="14">14 days</option>
+        <option value="30">30 days</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="grid" id="grid"></div>
+
+  <div class="charts">
+    <div class="chart"><h3>Opportunity status</h3><div id="statusChart"></div></div>
+    <div class="chart"><h3>My application funnel</h3><div id="funnelChart"></div></div>
+  </div>
+
+  <div class="timeline">
+    <h2>Typical application windows</h2>
+    <div class="tl-grid" id="timeline"></div>
+  </div>
+
+  <div class="interest" id="interestSection">
+    <h2>Might spark your interest</h2>
+    <p class="interest-sub">Other live Level 6 degree apprenticeships at large companies &mdash; consulting, audit &amp; advisory roles &mdash; found on GOV.UK that aren't on your core list.</p>
+    <div id="interestList"></div>
+  </div>
+
+  <div class="footer">
+    GOV.UK checked twice daily via an automated cloud job. Data refreshes when you reopen this tab.<br>
+    Built by Sebastian Cawthorne &middot; 2026 &middot; <a href="https://github.com/SebCaw/apprenticeship-tracker" target="_blank">source on GitHub &#8599;</a>
+  </div>
+</div>
+
+<script>window.DATA_FILE = "data.json";</script>
+<script src="../assets/tracker.js"></script>
+</body>
+</html>

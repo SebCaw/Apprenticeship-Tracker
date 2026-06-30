@@ -1,0 +1,402 @@
+{
+    "meta":  {
+                 "lastUpdated":  "2026-06-30T19:42:37Z",
+                 "version":  4,
+                 "seenVacancyIds":  [
+
+                                    ],
+                 "newSinceLastScrape":  [
+
+                                        ]
+             },
+    "interestListings":  [
+
+                         ],
+    "companies":  [
+                      {
+                          "id":  "pwc",
+                          "name":  "PwC",
+                          "sector":  "consulting",
+                          "color":  "#d04a02",
+                          "employerNameVariants":  [
+                                                       "PricewaterhouseCoopers LLP",
+                                                       "PricewaterhouseCoopers",
+                                                       "PwC"
+                                                   ],
+                          "careerUrl":  "https://www.pwc.co.uk/careers/student-careers/school-careers/our-programmes.html",
+                          "govSearchUrl":  "https://www.findapprenticeship.service.gov.uk/apprenticeships?searchTerm=PwC\u0026levelIds=6\u0026distanceType=England",
+                          "historicalCycles":  [
+                                                   {
+                                                       "year":  2025,
+                                                       "openedMonth":  9,
+                                                       "closedMonth":  10
+                                                   },
+                                                   {
+                                                       "year":  2024,
+                                                       "openedMonth":  9,
+                                                       "closedMonth":  10
+                                                   }
+                                               ],
+                          "programs":  [
+                                           {
+                                               "id":  "pwc_audit",
+                                               "name":  "Audit \u0026 Assurance",
+                                               "standard":  "Level 6",
+                                               "location":  "Multiple UK",
+                                               "salary":  "~£23,000",
+                                               "duration":  "4 years",
+                                               "status":  "not_open",
+                                               "closingDate":  null,
+                                               "applyUrl":  null,
+                                               "govVacancyId":  null,
+                                               "firstSeen":  null,
+                                               "lastSeen":  null
+                                           },
+                                           {
+                                               "id":  "pwc_consulting",
+                                               "name":  "Consulting",
+                                               "standard":  "Level 6",
+                                               "location":  "Multiple UK",
+                                               "salary":  "~£23,000",
+                                               "duration":  "4 years",
+                                               "status":  "not_open",
+                                               "closingDate":  null,
+                                               "applyUrl":  null,
+                                               "govVacancyId":  null,
+                                               "firstSeen":  null,
+                                               "lastSeen":  null
+                                           }
+                                       ]
+                      },
+                      {
+                          "id":  "deloitte",
+                          "name":  "Deloitte",
+                          "sector":  "consulting",
+                          "color":  "#86bc25",
+                          "employerNameVariants":  [
+                                                       "Deloitte LLP",
+                                                       "Deloitte UK",
+                                                       "Deloitte"
+                                                   ],
+                          "careerUrl":  "https://www.deloitte.com/uk/en/careers/students.html",
+                          "govSearchUrl":  "https://www.findapprenticeship.service.gov.uk/apprenticeships?searchTerm=Deloitte\u0026levelIds=6\u0026distanceType=England",
+                          "historicalCycles":  [
+                                                   {
+                                                       "year":  2025,
+                                                       "openedMonth":  9,
+                                                       "closedMonth":  11
+                                                   },
+                                                   {
+                                                       "year":  2024,
+                                                       "openedMonth":  9,
+                                                       "closedMonth":  11
+                                                   }
+                                               ],
+                          "programs":  [
+                                           {
+                                               "id":  "deloitte_audit",
+                                               "name":  "Audit \u0026 Assurance",
+                                               "standard":  "Level 6",
+                                               "location":  "Multiple UK",
+                                               "salary":  "~£23,000",
+                                               "duration":  "5 years",
+                                               "status":  "not_open",
+                                               "closingDate":  null,
+                                               "applyUrl":  null,
+                                               "govVacancyId":  null,
+                                               "firstSeen":  null,
+                                               "lastSeen":  null
+                                           },
+                                           {
+                                               "id":  "deloitte_consulting",
+                                               "name":  "Consulting",
+                                               "standard":  "Level 6",
+                                               "location":  "Multiple UK",
+                                               "salary":  "~£23,000",
+                                               "duration":  "5 years",
+                                               "status":  "not_open",
+                                               "closingDate":  null,
+                                               "applyUrl":  null,
+                                               "govVacancyId":  null,
+                                               "firstSeen":  null,
+                                               "lastSeen":  null
+                                           }
+                                       ]
+                      },
+                      {
+                          "id":  "ey",
+                          "name":  "EY",
+                          "sector":  "consulting",
+                          "color":  "#c9bd00",
+                          "employerNameVariants":  [
+                                                       "Ernst \u0026 Young LLP",
+                                                       "Ernst \u0026 Young",
+                                                       "EY"
+                                                   ],
+                          "careerUrl":  "https://www.ey.com/en_uk/careers/students",
+                          "govSearchUrl":  "https://www.findapprenticeship.service.gov.uk/apprenticeships?searchTerm=EY\u0026levelIds=6\u0026distanceType=England",
+                          "historicalCycles":  [
+                                                   {
+                                                       "year":  2025,
+                                                       "openedMonth":  9,
+                                                       "closedMonth":  10
+                                                   },
+                                                   {
+                                                       "year":  2024,
+                                                       "openedMonth":  9,
+                                                       "closedMonth":  10
+                                                   }
+                                               ],
+                          "programs":  [
+                                           {
+                                               "id":  "ey_audit",
+                                               "name":  "Audit \u0026 Assurance",
+                                               "standard":  "Level 6",
+                                               "location":  "Multiple UK",
+                                               "salary":  "~£22,000",
+                                               "duration":  "4 years",
+                                               "status":  "not_open",
+                                               "closingDate":  null,
+                                               "applyUrl":  null,
+                                               "govVacancyId":  null,
+                                               "firstSeen":  null,
+                                               "lastSeen":  null
+                                           },
+                                           {
+                                               "id":  "ey_consulting",
+                                               "name":  "Consulting",
+                                               "standard":  "Level 6",
+                                               "location":  "Multiple UK",
+                                               "salary":  "~£22,000",
+                                               "duration":  "4 years",
+                                               "status":  "not_open",
+                                               "closingDate":  null,
+                                               "applyUrl":  null,
+                                               "govVacancyId":  null,
+                                               "firstSeen":  null,
+                                               "lastSeen":  null
+                                           }
+                                       ]
+                      },
+                      {
+                          "id":  "kpmg",
+                          "name":  "KPMG",
+                          "sector":  "consulting",
+                          "color":  "#00338d",
+                          "employerNameVariants":  [
+                                                       "KPMG LLP",
+                                                       "KPMG UK",
+                                                       "KPMG"
+                                                   ],
+                          "careerUrl":  "https://www.kpmgcareers.co.uk/apprentice/",
+                          "govSearchUrl":  "https://www.findapprenticeship.service.gov.uk/apprenticeships?searchTerm=KPMG\u0026levelIds=6\u0026distanceType=England",
+                          "historicalCycles":  [
+                                                   {
+                                                       "year":  2025,
+                                                       "openedMonth":  9,
+                                                       "closedMonth":  10
+                                                   },
+                                                   {
+                                                       "year":  2024,
+                                                       "openedMonth":  9,
+                                                       "closedMonth":  10
+                                                   }
+                                               ],
+                          "programs":  [
+                                           {
+                                               "id":  "kpmg_audit",
+                                               "name":  "Audit",
+                                               "standard":  "Level 6",
+                                               "location":  "Multiple UK",
+                                               "salary":  "~£22,000",
+                                               "duration":  "4 years",
+                                               "status":  "not_open",
+                                               "closingDate":  null,
+                                               "applyUrl":  null,
+                                               "govVacancyId":  null,
+                                               "firstSeen":  null,
+                                               "lastSeen":  null
+                                           },
+                                           {
+                                               "id":  "kpmg_consulting",
+                                               "name":  "Consulting \u0026 Advisory",
+                                               "standard":  "Level 6",
+                                               "location":  "Multiple UK",
+                                               "salary":  "~£22,000",
+                                               "duration":  "4 years",
+                                               "status":  "not_open",
+                                               "closingDate":  null,
+                                               "applyUrl":  null,
+                                               "govVacancyId":  null,
+                                               "firstSeen":  null,
+                                               "lastSeen":  null
+                                           }
+                                       ]
+                      },
+                      {
+                          "id":  "accenture",
+                          "name":  "Accenture",
+                          "sector":  "consulting",
+                          "color":  "#a100ff",
+                          "employerNameVariants":  [
+                                                       "Accenture (UK) Limited",
+                                                       "Accenture UK",
+                                                       "Accenture"
+                                                   ],
+                          "careerUrl":  "https://www.accenture.com/gb-en/careers/local/apprenticeships",
+                          "govSearchUrl":  "https://www.findapprenticeship.service.gov.uk/apprenticeships?searchTerm=Accenture\u0026levelIds=6\u0026distanceType=England",
+                          "historicalCycles":  [
+                                                   {
+                                                       "year":  2025,
+                                                       "openedMonth":  9,
+                                                       "closedMonth":  11
+                                                   },
+                                                   {
+                                                       "year":  2024,
+                                                       "openedMonth":  9,
+                                                       "closedMonth":  11
+                                                   }
+                                               ],
+                          "programs":  [
+                                           {
+                                               "id":  "accenture_consulting",
+                                               "name":  "Business \u0026 Technology Consulting",
+                                               "standard":  "Level 6",
+                                               "location":  "London / Multiple UK",
+                                               "salary":  "~£24,000",
+                                               "duration":  "4 years",
+                                               "status":  "not_open",
+                                               "closingDate":  null,
+                                               "applyUrl":  null,
+                                               "govVacancyId":  null,
+                                               "firstSeen":  null,
+                                               "lastSeen":  null
+                                           },
+                                           {
+                                               "id":  "accenture_strategy",
+                                               "name":  "Consulting \u0026 Strategy",
+                                               "standard":  "Level 6",
+                                               "location":  "London",
+                                               "salary":  "~£24,000",
+                                               "duration":  "4 years",
+                                               "status":  "not_open",
+                                               "closingDate":  null,
+                                               "applyUrl":  null,
+                                               "govVacancyId":  null,
+                                               "firstSeen":  null,
+                                               "lastSeen":  null
+                                           }
+                                       ]
+                      },
+                      {
+                          "id":  "capgemini",
+                          "name":  "Capgemini",
+                          "sector":  "consulting",
+                          "color":  "#0070ad",
+                          "employerNameVariants":  [
+                                                       "Capgemini UK plc",
+                                                       "Capgemini UK",
+                                                       "Capgemini"
+                                                   ],
+                          "careerUrl":  "https://www.capgemini.com/gb-en/careers/apprenticeships/",
+                          "govSearchUrl":  "https://www.findapprenticeship.service.gov.uk/apprenticeships?searchTerm=Capgemini\u0026levelIds=6\u0026distanceType=England",
+                          "historicalCycles":  [
+                                                   {
+                                                       "year":  2025,
+                                                       "openedMonth":  9,
+                                                       "closedMonth":  11
+                                                   },
+                                                   {
+                                                       "year":  2024,
+                                                       "openedMonth":  9,
+                                                       "closedMonth":  11
+                                                   }
+                                               ],
+                          "programs":  [
+                                           {
+                                               "id":  "capgemini_consulting",
+                                               "name":  "Business Consulting",
+                                               "standard":  "Level 6",
+                                               "location":  "London / Telford",
+                                               "salary":  "~£23,000",
+                                               "duration":  "4 years",
+                                               "status":  "not_open",
+                                               "closingDate":  null,
+                                               "applyUrl":  null,
+                                               "govVacancyId":  null,
+                                               "firstSeen":  null,
+                                               "lastSeen":  null
+                                           },
+                                           {
+                                               "id":  "capgemini_digital",
+                                               "name":  "Digital \u0026 Tech Consulting",
+                                               "standard":  "Level 6",
+                                               "location":  "London",
+                                               "salary":  "~£23,000",
+                                               "duration":  "4 years",
+                                               "status":  "not_open",
+                                               "closingDate":  null,
+                                               "applyUrl":  null,
+                                               "govVacancyId":  null,
+                                               "firstSeen":  null,
+                                               "lastSeen":  null
+                                           }
+                                       ]
+                      },
+                      {
+                          "id":  "cognizant",
+                          "name":  "Cognizant",
+                          "sector":  "consulting",
+                          "color":  "#1a3673",
+                          "employerNameVariants":  [
+                                                       "Cognizant Worldwide Limited",
+                                                       "Cognizant Technology Solutions",
+                                                       "Cognizant"
+                                                   ],
+                          "careerUrl":  "https://careers.cognizant.com/global-en/early-career/",
+                          "govSearchUrl":  "https://www.findapprenticeship.service.gov.uk/apprenticeships?searchTerm=Cognizant\u0026levelIds=6\u0026distanceType=England",
+                          "historicalCycles":  [
+                                                   {
+                                                       "year":  2025,
+                                                       "openedMonth":  9,
+                                                       "closedMonth":  11
+                                                   },
+                                                   {
+                                                       "year":  2024,
+                                                       "openedMonth":  9,
+                                                       "closedMonth":  11
+                                                   }
+                                               ],
+                          "programs":  [
+                                           {
+                                               "id":  "cognizant_consulting",
+                                               "name":  "Business Consulting",
+                                               "standard":  "Level 6",
+                                               "location":  "London",
+                                               "salary":  "~£23,000",
+                                               "duration":  "3 years",
+                                               "status":  "not_open",
+                                               "closingDate":  null,
+                                               "applyUrl":  null,
+                                               "govVacancyId":  null,
+                                               "firstSeen":  null,
+                                               "lastSeen":  null
+                                           },
+                                           {
+                                               "id":  "cognizant_ops",
+                                               "name":  "Consulting \u0026 Operations",
+                                               "standard":  "Level 6",
+                                               "location":  "London",
+                                               "salary":  "~£23,000",
+                                               "duration":  "4 years",
+                                               "status":  "not_open",
+                                               "closingDate":  null,
+                                               "applyUrl":  null,
+                                               "govVacancyId":  null,
+                                               "firstSeen":  null,
+                                               "lastSeen":  null
+                                           }
+                                       ]
+                      }
+                  ]
+}

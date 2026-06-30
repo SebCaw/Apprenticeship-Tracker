@@ -1,10 +1,10 @@
 # Cloud scraper for the Degree Apprenticeship Tracker.
-# Runs on GitHub Actions (PowerShell Core, Linux) twice a day. Reads & rewrites data.json.
+# Runs on GitHub Actions (PowerShell Core, Linux) twice a day.
+# Reads & rewrites the three sector data files (sales / finance / consulting).
 # Source: GOV.UK "Find an Apprenticeship" only. Non-technical (sales/finance/consulting) roles.
 
 $ErrorActionPreference = 'Stop'
-$root     = $PSScriptRoot
-$dataPath = Join-Path $root "data.json"
+$root = $PSScriptRoot
 
 $TECH = 'software|web develop|developer|programmer|data scien|data engineer|data analy|\bdata\b|cyber|\bcloud|devops|infrastructure|\bnetwork|enginee|structural|mechanical|electrical|chemical|aerospace|laborator|quantity survey|architect\b'
 $BIG  = 'microsoft|ibm|salesforce|amazon|oracle|\bsap\b|hsbc|barclays|goldman|jpmorgan|j\.p\. morgan|jp morgan|pwc|pricewaterhouse|deloitte|kpmg|ernst|\bey\b|accenture|capgemini|cognizant|infosys|tata|\btcs\b|bt group|\bbt\b|vodafone|\bsky\b|virgin media|\bo2\b|lloyds|natwest|santander|nationwide|standard chartered|aviva|legal & general|prudential|\baxa\b|allianz|zurich|morgan stanley|\bciti\b|bank of america|merrill|\bubs\b|deutsche bank|nomura|bnp paribas|schroders|fidelity|unilever|procter|nestle|coca-cola|pepsico|diageo|\bmars\b|johnson|\bgsk\b|glaxo|astrazeneca|pfizer|siemens|bosch|cisco|\bdell\b|\bhp\b|hewlett|intel|google|meta|apple|adobe|tesco|sainsbury|\basda\b|marks & spencer|m&s|john lewis|boots|\bbp\b|shell|centrica|national grid|rolls-royce|\bbae\b|airbus|jaguar|land rover|nissan|toyota|\bford\b|\bbmw\b|mercedes|volkswagen|network rail|royal mail|\bdhl\b|fedex|\bups\b|american express|\bamex\b|visa|mastercard|paypal|\bsage\b|softcat|computacenter'
@@ -28,6 +28,15 @@ function Category-From([string]$title) {
   elseif ($t -match 'market') { 'Marketing' }
   else { 'Business' }
 }
+# Route a broad-search "interest" listing to the sector page it belongs on.
+function Sector-ForCategory([string]$cat) {
+  switch ($cat) {
+    'Finance'    { 'finance' }
+    'Audit'      { 'consulting' }
+    'Consulting' { 'consulting' }
+    default      { 'sales' }   # Sales, Marketing, Business
+  }
+}
 function Get-Vacancies([string]$html) {
   $out = @()
   $titles = [regex]::Matches($html, '<span id="(VAC\d+)-vacancy-title">([^<]*)</span>')
@@ -49,77 +58,111 @@ function Fetch-Html([string]$url) {
   try { (Invoke-WebRequest -Uri $url -UseBasicParsing -TimeoutSec 30 -Headers @{ 'User-Agent' = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)' }).Content } catch { $null }
 }
 
-$data = [System.IO.File]::ReadAllText($dataPath, [System.Text.Encoding]::UTF8) | ConvertFrom-Json
+# ---- the three sector datasets ----
+$sectorFiles = [ordered]@{ sales = 'sales/data.json'; finance = 'finance/data.json'; consulting = 'consulting/data.json' }
 $today = (Get-Date).ToString('yyyy-MM-dd')
-$seen = @(); if ($data.meta.seenVacancyIds) { $seen = @($data.meta.seenVacancyIds) }
-$errors = 0; $coreLive = 0; $coreIds = @{}
-$liveItems = @()   # {id, company, title} for everything found this run (for notifications)
 
-foreach ($co in $data.companies) {
-  $html = Fetch-Html $co.govSearchUrl
-  if ($null -eq $html) { $errors++; continue }
-  $matched = @()
-  foreach ($v in (Get-Vacancies $html)) {
-    $empOk = $false
-    foreach ($variant in $co.employerNameVariants) { if ($v.employer -and ($v.employer.ToLower() -like ("*" + $variant.ToLower() + "*"))) { $empOk = $true; break } }
-    if (-not $empOk) { continue }
-    if (Is-Technical $v.title $v.course) { continue }
-    $matched += $v
-  }
-  if ($matched.Count -gt 0) {
-    $progs = @()
-    foreach ($v in ($matched | Sort-Object { if ($_.closeISO) { [datetime]$_.closeISO } else { [datetime]::MaxValue } })) {
-      $coreIds[$v.id] = $true; $coreLive++
-      $liveItems += [pscustomobject]@{ id=$v.id; company=$co.name; title=$v.title }
-      $progs += [pscustomobject]@{
-        id=$v.id; name=$v.title; standard="Level 6"; location=$v.location; salary=$null; duration=""
-        status=(Status-From $v.closeISO); closingDate=$v.closeISO
-        applyUrl=("https://www.findapprenticeship.service.gov.uk/apprenticeship/" + $v.id)
-        govVacancyId=$v.id; firstSeen=$today; lastSeen=$today
-      }
+$data = @{}
+foreach ($s in $sectorFiles.Keys) {
+  $p = Join-Path $root $sectorFiles[$s]
+  $data[$s] = [System.IO.File]::ReadAllText($p, [System.Text.Encoding]::UTF8) | ConvertFrom-Json
+}
+
+$errors = 0
+$liveItems = @()       # {id, company, title, sector} for everything found this run (for notifications)
+$coreIdsAll = @{}      # vacancy ids matched to a core company (excluded from interest)
+$coreLive = 0
+
+# ---- core companies: scrape each sector's tracked employers ----
+foreach ($s in $sectorFiles.Keys) {
+  foreach ($co in $data[$s].companies) {
+    $html = Fetch-Html $co.govSearchUrl
+    if ($null -eq $html) { $errors++; continue }
+    $matched = @()
+    foreach ($v in (Get-Vacancies $html)) {
+      $empOk = $false
+      foreach ($variant in $co.employerNameVariants) { if ($v.employer -and ($v.employer.ToLower() -like ("*" + $variant.ToLower() + "*"))) { $empOk = $true; break } }
+      if (-not $empOk) { continue }
+      if (Is-Technical $v.title $v.course) { continue }
+      $matched += $v
     }
-    $co.programs = $progs
+    if ($matched.Count -gt 0) {
+      $progs = @()
+      foreach ($v in ($matched | Sort-Object { if ($_.closeISO) { [datetime]$_.closeISO } else { [datetime]::MaxValue } })) {
+        $coreIdsAll[$v.id] = $true; $coreLive++
+        $liveItems += [pscustomobject]@{ id=$v.id; company=$co.name; title=$v.title; sector=$s }
+        $progs += [pscustomobject]@{
+          id=$v.id; name=$v.title; standard="Level 6"; location=$v.location; salary=$null; duration=""
+          status=(Status-From $v.closeISO); closingDate=$v.closeISO
+          applyUrl=("https://www.findapprenticeship.service.gov.uk/apprenticeship/" + $v.id)
+          govVacancyId=$v.id; firstSeen=$today; lastSeen=$today
+        }
+      }
+      $co.programs = $progs
+    }
+    # else: leave the company's existing (seeded / pre-season) programs untouched
   }
 }
 
+# ---- interest: broad GOV.UK searches, routed to the matching sector page ----
 $terms = @('sales','business+development','account+management','finance','banking','consulting','audit','business','marketing','commercial')
-$interest = @(); $seenInterest = @{}
+$interestBySector = @{ sales = @(); finance = @(); consulting = @() }
+$seenInterest = @{}
 foreach ($term in $terms) {
   $html = Fetch-Html "https://www.findapprenticeship.service.gov.uk/apprenticeships?searchTerm=$term&levelIds=6&distanceType=England&sort=AgeDesc"
   if ($null -eq $html) { $errors++; continue }
   foreach ($v in (Get-Vacancies $html)) {
-    if ($seenInterest.ContainsKey($v.id) -or $coreIds.ContainsKey($v.id)) { continue }
+    if ($seenInterest.ContainsKey($v.id) -or $coreIdsAll.ContainsKey($v.id)) { continue }
     if (Is-Technical $v.title $v.course) { continue }
     if (-not $v.employer) { continue }
     if ($v.employer.ToLower() -notmatch $BIG) { continue }
     if ($v.closeISO -and ([datetime]$v.closeISO -lt (Get-Date))) { continue }
     $seenInterest[$v.id] = $true
-    $liveItems += [pscustomobject]@{ id=$v.id; company=$v.employer; title=$v.title }
-    $interest += [pscustomobject]@{
+    $cat = Category-From $v.title
+    $sec = Sector-ForCategory $cat
+    $liveItems += [pscustomobject]@{ id=$v.id; company=$v.employer; title=$v.title; sector=$sec }
+    $interestBySector[$sec] += [pscustomobject]@{
       id=$v.id; company=$v.employer; title=$v.title; standard="Level 6"; location=$v.location; salary=$null
-      category=(Category-From $v.title); closingDate=$v.closeISO
+      category=$cat; closingDate=$v.closeISO
       applyUrl=("https://www.findapprenticeship.service.gov.uk/apprenticeship/" + $v.id); firstSeen=$today
     }
   }
 }
-$data.interestListings = @($interest)
 
-$allIds = @($coreIds.Keys) + @($seenInterest.Keys)
-$new = @($allIds | Where-Object { $seen -notcontains $_ })
-$data.meta.lastUpdated = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ')
-$data.meta.seenVacancyIds = @($seen + $allIds | Select-Object -Unique)
-$data.meta.newSinceLastScrape = @($new)
+# ---- per-sector: update meta, compute what's new, write the file ----
+$allNew = @()   # {id, sector}
+foreach ($s in $sectorFiles.Keys) {
+  $d = $data[$s]
+  $d.interestListings = @($interestBySector[$s])
 
-$json = $data | ConvertTo-Json -Depth 12
-[System.IO.File]::WriteAllText($dataPath, $json, (New-Object System.Text.UTF8Encoding($false)))
-Write-Host "Done. coreLive=$coreLive interest=$($interest.Count) new=$($new.Count) errors=$errors lastUpdated=$($data.meta.lastUpdated)"
+  $sectorIds = @()
+  foreach ($co in $d.companies) { foreach ($p in $co.programs) { if ($p.govVacancyId) { $sectorIds += $p.govVacancyId } } }
+  foreach ($it in $interestBySector[$s]) { $sectorIds += $it.id }
+  $sectorIds = @($sectorIds | Select-Object -Unique)
+
+  $seen = @(); if ($d.meta.seenVacancyIds) { $seen = @($d.meta.seenVacancyIds) }
+  $new = @($sectorIds | Where-Object { $seen -notcontains $_ })
+  foreach ($n in $new) { $allNew += [pscustomobject]@{ id=$n; sector=$s } }
+
+  $d.meta.lastUpdated = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ')
+  $d.meta.seenVacancyIds = @($seen + $sectorIds | Select-Object -Unique)
+  $d.meta.newSinceLastScrape = @($new)
+
+  $json = $d | ConvertTo-Json -Depth 12
+  [System.IO.File]::WriteAllText((Join-Path $root $sectorFiles[$s]), $json, (New-Object System.Text.UTF8Encoding($false)))
+}
+
+Write-Host "Done. coreLive=$coreLive new=$($allNew.Count) errors=$errors"
 
 # --- Notifications — only when there are genuinely NEW roles this run ---
-if ($new.Count -gt 0) {
+if ($allNew.Count -gt 0) {
   $lines = @()
-  foreach ($id in $new) {
-    $it = $liveItems | Where-Object { $_.id -eq $id } | Select-Object -First 1
-    if ($it) { $lines += ("- {0}: {1}" -f $it.company, $it.title) }
+  foreach ($grp in ($allNew | Group-Object sector)) {
+    $lines += ($grp.Name.ToUpper())
+    foreach ($n in $grp.Group) {
+      $it = $liveItems | Where-Object { $_.id -eq $n.id -and $_.sector -eq $n.sector } | Select-Object -First 1
+      if ($it) { $lines += ("- {0}: {1}" -f $it.company, $it.title) }
+    }
   }
   $msg = "New Level 6 apprenticeship(s) found:`n" + ($lines -join "`n")
   $sent = $false
@@ -129,7 +172,7 @@ if ($new.Count -gt 0) {
   if ($tgToken -and $tgChat) {
     try {
       Invoke-RestMethod -Uri "https://api.telegram.org/bot$tgToken/sendMessage" -Method Post -Body @{ chat_id = $tgChat; text = $msg } | Out-Null
-      Write-Host "Sent Telegram notification ($($new.Count) new role(s))."; $sent = $true
+      Write-Host "Sent Telegram notification ($($allNew.Count) new role(s))."; $sent = $true
     } catch { Write-Host "Telegram notification failed: $_" }
   }
 

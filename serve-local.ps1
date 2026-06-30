@@ -2,11 +2,13 @@
 # Static file server using .NET HttpListener — no Node/Python needed.
 # Usage:  powershell -ExecutionPolicy Bypass -File serve-local.ps1
 # Then open http://localhost:8090/
+# Optional: pass a different port, e.g.  serve-local.ps1 -Port 5500
 #
 # Tip: to refresh the data while running locally, run  ./scrape.ps1  in another window,
 # then reload the page (the server sends no-cache headers so you'll see the update).
 
-$port = 8090
+param([int]$Port = 8090)
+$port = $Port
 $root = $PSScriptRoot
 
 $mime = @{
@@ -15,6 +17,9 @@ $mime = @{
   ".css"  = "text/css; charset=utf-8"
   ".json" = "application/json; charset=utf-8"
   ".svg"  = "image/svg+xml"; ".png" = "image/png"; ".ico" = "image/x-icon"
+  ".pdf"  = "application/pdf"
+  ".jpg"  = "image/jpeg"; ".jpeg" = "image/jpeg"; ".webp" = "image/webp"
+  ".pptx" = "application/vnd.openxmlformats-officedocument.presentationml.presentation"
 }
 
 $listener = New-Object System.Net.HttpListener
