@@ -1,678 +1,672 @@
 {
-    "meta":  {
-                 "lastUpdated":  "2026-06-30T19:42:37Z",
-                 "version":  4,
-                 "seenVacancyIds":  [
-
-                                    ],
-                 "newSinceLastScrape":  [
-
-                                        ]
-             },
-    "interestListings":  [
-
-                         ],
-    "companies":  [
-                      {
-                          "id":  "hsbc",
-                          "name":  "HSBC",
-                          "sector":  "finance",
-                          "color":  "#db0011",
-                          "employerNameVariants":  [
-                                                       "HSBC Bank plc",
-                                                       "HSBC UK Bank plc",
-                                                       "HSBC"
-                                                   ],
-                          "careerUrl":  "https://www.hsbc.com/careers/students-and-graduates/student-opportunities",
-                          "govSearchUrl":  "https://www.findapprenticeship.service.gov.uk/apprenticeships?searchTerm=HSBC\u0026levelIds=6\u0026distanceType=England",
-                          "historicalCycles":  [
-                                                   {
-                                                       "year":  2025,
-                                                       "openedMonth":  9,
-                                                       "closedMonth":  10
-                                                   },
-                                                   {
-                                                       "year":  2024,
-                                                       "openedMonth":  9,
-                                                       "closedMonth":  10
-                                                   }
-                                               ],
-                          "programs":  [
-                                           {
-                                               "id":  "hsbc_commercial",
-                                               "name":  "Commercial Banking \u0026 Relationship Management",
-                                               "standard":  "Level 6",
-                                               "location":  "London / Birmingham",
-                                               "salary":  "~£24,000",
-                                               "duration":  "4 years",
-                                               "status":  "not_open",
-                                               "closingDate":  null,
-                                               "applyUrl":  null,
-                                               "govVacancyId":  null,
-                                               "firstSeen":  null,
-                                               "lastSeen":  null
-                                           },
-                                           {
-                                               "id":  "hsbc_finance",
-                                               "name":  "Finance",
-                                               "standard":  "Level 6",
-                                               "location":  "London",
-                                               "salary":  "~£24,000",
-                                               "duration":  "4 years",
-                                               "status":  "not_open",
-                                               "closingDate":  null,
-                                               "applyUrl":  null,
-                                               "govVacancyId":  null,
-                                               "firstSeen":  null,
-                                               "lastSeen":  null
-                                           }
-                                       ]
-                      },
-                      {
-                          "id":  "barclays",
-                          "name":  "Barclays",
-                          "sector":  "finance",
-                          "color":  "#00aeef",
-                          "employerNameVariants":  [
-                                                       "Barclays Bank UK PLC",
-                                                       "Barclays Bank PLC",
-                                                       "Barclays"
-                                                   ],
-                          "careerUrl":  "https://search.jobs.barclays/early-careers",
-                          "govSearchUrl":  "https://www.findapprenticeship.service.gov.uk/apprenticeships?searchTerm=Barclays\u0026levelIds=6\u0026distanceType=England",
-                          "historicalCycles":  [
-                                                   {
-                                                       "year":  2025,
-                                                       "openedMonth":  9,
-                                                       "closedMonth":  11
-                                                   },
-                                                   {
-                                                       "year":  2024,
-                                                       "openedMonth":  9,
-                                                       "closedMonth":  11
-                                                   }
-                                               ],
-                          "programs":  [
-                                           {
-                                               "id":  "barclays_relationship",
-                                               "name":  "Relationship \u0026 Corporate Banking",
-                                               "standard":  "Level 6",
-                                               "location":  "London / Birmingham",
-                                               "salary":  "~£24,000",
-                                               "duration":  "4 years",
-                                               "status":  "not_open",
-                                               "closingDate":  null,
-                                               "applyUrl":  null,
-                                               "govVacancyId":  null,
-                                               "firstSeen":  null,
-                                               "lastSeen":  null
-                                           },
-                                           {
-                                               "id":  "barclays_finance",
-                                               "name":  "Finance \u0026 Risk",
-                                               "standard":  "Level 6",
-                                               "location":  "London / Glasgow",
-                                               "salary":  "~£24,000",
-                                               "duration":  "4 years",
-                                               "status":  "not_open",
-                                               "closingDate":  null,
-                                               "applyUrl":  null,
-                                               "govVacancyId":  null,
-                                               "firstSeen":  null,
-                                               "lastSeen":  null
-                                           }
-                                       ]
-                      },
-                      {
-                          "id":  "goldman",
-                          "name":  "Goldman Sachs",
-                          "sector":  "finance",
-                          "color":  "#7399c6",
-                          "employerNameVariants":  [
-                                                       "Goldman Sachs International",
-                                                       "Goldman Sachs \u0026 Co",
-                                                       "Goldman Sachs"
-                                                   ],
-                          "careerUrl":  "https://www.goldmansachs.com/careers/students/programs",
-                          "govSearchUrl":  "https://www.findapprenticeship.service.gov.uk/apprenticeships?searchTerm=Goldman+Sachs\u0026levelIds=6\u0026distanceType=England",
-                          "historicalCycles":  [
-                                                   {
-                                                       "year":  2025,
-                                                       "openedMonth":  10,
-                                                       "closedMonth":  11
-                                                   },
-                                                   {
-                                                       "year":  2024,
-                                                       "openedMonth":  10,
-                                                       "closedMonth":  11
-                                                   }
-                                               ],
-                          "programs":  [
-                                           {
-                                               "id":  "goldman_finance",
-                                               "name":  "Finance \u0026 Business Operations",
-                                               "standard":  "Level 6",
-                                               "location":  "London / Birmingham",
-                                               "salary":  "~£28,000",
-                                               "duration":  "4 years",
-                                               "status":  "not_open",
-                                               "closingDate":  null,
-                                               "applyUrl":  null,
-                                               "govVacancyId":  null,
-                                               "firstSeen":  null,
-                                               "lastSeen":  null
-                                           },
-                                           {
-                                               "id":  "goldman_wealth",
-                                               "name":  "Wealth Management",
-                                               "standard":  "Level 6",
-                                               "location":  "London",
-                                               "salary":  "~£28,000",
-                                               "duration":  "4 years",
-                                               "status":  "not_open",
-                                               "closingDate":  null,
-                                               "applyUrl":  null,
-                                               "govVacancyId":  null,
-                                               "firstSeen":  null,
-                                               "lastSeen":  null
-                                           }
-                                       ]
-                      },
-                      {
-                          "id":  "jpmorgan",
-                          "name":  "JPMorgan",
-                          "sector":  "finance",
-                          "color":  "#5d4a36",
-                          "employerNameVariants":  [
-                                                       "JPMorgan Chase Bank",
-                                                       "J.P. Morgan",
-                                                       "JP Morgan",
-                                                       "JPMorgan"
-                                                   ],
-                          "careerUrl":  "https://www.jpmorganchase.com/careers/explore-opportunities/students-and-graduates",
-                          "govSearchUrl":  "https://www.findapprenticeship.service.gov.uk/apprenticeships?searchTerm=JPMorgan\u0026levelIds=6\u0026distanceType=England",
-                          "historicalCycles":  [
-                                                   {
-                                                       "year":  2025,
-                                                       "openedMonth":  9,
-                                                       "closedMonth":  10
-                                                   },
-                                                   {
-                                                       "year":  2024,
-                                                       "openedMonth":  9,
-                                                       "closedMonth":  10
-                                                   }
-                                               ],
-                          "programs":  [
-                                           {
-                                               "id":  "jpmorgan_finance",
-                                               "name":  "Finance \u0026 Business Operations",
-                                               "standard":  "Level 6",
-                                               "location":  "Bournemouth / Glasgow",
-                                               "salary":  "~£26,000",
-                                               "duration":  "4 years",
-                                               "status":  "not_open",
-                                               "closingDate":  null,
-                                               "applyUrl":  null,
-                                               "govVacancyId":  null,
-                                               "firstSeen":  null,
-                                               "lastSeen":  null
-                                           },
-                                           {
-                                               "id":  "jpmorgan_client",
-                                               "name":  "Operations \u0026 Client Service",
-                                               "standard":  "Level 6",
-                                               "location":  "Bournemouth",
-                                               "salary":  "~£26,000",
-                                               "duration":  "4 years",
-                                               "status":  "not_open",
-                                               "closingDate":  null,
-                                               "applyUrl":  null,
-                                               "govVacancyId":  null,
-                                               "firstSeen":  null,
-                                               "lastSeen":  null
-                                           }
-                                       ]
-                      },
-                      {
-                          "id":  "morganstanley",
-                          "name":  "Morgan Stanley",
-                          "sector":  "finance",
-                          "color":  "#1d4f91",
-                          "employerNameVariants":  [
-                                                       "Morgan Stanley \u0026 Co International",
-                                                       "Morgan Stanley UK",
-                                                       "Morgan Stanley"
-                                                   ],
-                          "careerUrl":  "https://www.morganstanley.com/people-opportunities/students-graduates",
-                          "govSearchUrl":  "https://www.findapprenticeship.service.gov.uk/apprenticeships?searchTerm=Morgan+Stanley\u0026levelIds=6\u0026distanceType=England",
-                          "historicalCycles":  [
-                                                   {
-                                                       "year":  2025,
-                                                       "openedMonth":  9,
-                                                       "closedMonth":  11
-                                                   },
-                                                   {
-                                                       "year":  2024,
-                                                       "openedMonth":  9,
-                                                       "closedMonth":  11
-                                                   }
-                                               ],
-                          "programs":  [
-                                           {
-                                               "id":  "morganstanley_finance",
-                                               "name":  "Finance \u0026 Operations",
-                                               "standard":  "Level 6",
-                                               "location":  "London / Glasgow",
-                                               "salary":  "~£28,000",
-                                               "duration":  "4 years",
-                                               "status":  "not_open",
-                                               "closingDate":  null,
-                                               "applyUrl":  null,
-                                               "govVacancyId":  null,
-                                               "firstSeen":  null,
-                                               "lastSeen":  null
-                                           },
-                                           {
-                                               "id":  "morganstanley_wealth",
-                                               "name":  "Wealth Management",
-                                               "standard":  "Level 6",
-                                               "location":  "London",
-                                               "salary":  "~£28,000",
-                                               "duration":  "4 years",
-                                               "status":  "not_open",
-                                               "closingDate":  null,
-                                               "applyUrl":  null,
-                                               "govVacancyId":  null,
-                                               "firstSeen":  null,
-                                               "lastSeen":  null
-                                           }
-                                       ]
-                      },
-                      {
-                          "id":  "citi",
-                          "name":  "Citi",
-                          "sector":  "finance",
-                          "color":  "#056dae",
-                          "employerNameVariants":  [
-                                                       "Citigroup Global Markets",
-                                                       "Citibank",
-                                                       "Citi"
-                                                   ],
-                          "careerUrl":  "https://www.citigroup.com/global/early-careers",
-                          "govSearchUrl":  "https://www.findapprenticeship.service.gov.uk/apprenticeships?searchTerm=Citi\u0026levelIds=6\u0026distanceType=England",
-                          "historicalCycles":  [
-                                                   {
-                                                       "year":  2025,
-                                                       "openedMonth":  9,
-                                                       "closedMonth":  11
-                                                   },
-                                                   {
-                                                       "year":  2024,
-                                                       "openedMonth":  9,
-                                                       "closedMonth":  11
-                                                   }
-                                               ],
-                          "programs":  [
-                                           {
-                                               "id":  "citi_markets",
-                                               "name":  "Markets \u0026 Banking Operations",
-                                               "standard":  "Level 6",
-                                               "location":  "London / Belfast",
-                                               "salary":  "~£27,000",
-                                               "duration":  "4 years",
-                                               "status":  "not_open",
-                                               "closingDate":  null,
-                                               "applyUrl":  null,
-                                               "govVacancyId":  null,
-                                               "firstSeen":  null,
-                                               "lastSeen":  null
-                                           },
-                                           {
-                                               "id":  "citi_finance",
-                                               "name":  "Finance",
-                                               "standard":  "Level 6",
-                                               "location":  "Belfast",
-                                               "salary":  "~£27,000",
-                                               "duration":  "4 years",
-                                               "status":  "not_open",
-                                               "closingDate":  null,
-                                               "applyUrl":  null,
-                                               "govVacancyId":  null,
-                                               "firstSeen":  null,
-                                               "lastSeen":  null
-                                           }
-                                       ]
-                      },
-                      {
-                          "id":  "bofa",
-                          "name":  "Bank of America",
-                          "sector":  "finance",
-                          "color":  "#e31837",
-                          "employerNameVariants":  [
-                                                       "Bank of America Merrill Lynch",
-                                                       "Bank of America",
-                                                       "Merrill Lynch"
-                                                   ],
-                          "careerUrl":  "https://campus.bankofamerica.com/",
-                          "govSearchUrl":  "https://www.findapprenticeship.service.gov.uk/apprenticeships?searchTerm=Bank+of+America\u0026levelIds=6\u0026distanceType=England",
-                          "historicalCycles":  [
-                                                   {
-                                                       "year":  2025,
-                                                       "openedMonth":  9,
-                                                       "closedMonth":  11
-                                                   },
-                                                   {
-                                                       "year":  2024,
-                                                       "openedMonth":  9,
-                                                       "closedMonth":  11
-                                                   }
-                                               ],
-                          "programs":  [
-                                           {
-                                               "id":  "bofa_markets",
-                                               "name":  "Global Banking \u0026 Markets Operations",
-                                               "standard":  "Level 6",
-                                               "location":  "London / Chester",
-                                               "salary":  "~£27,000",
-                                               "duration":  "4 years",
-                                               "status":  "not_open",
-                                               "closingDate":  null,
-                                               "applyUrl":  null,
-                                               "govVacancyId":  null,
-                                               "firstSeen":  null,
-                                               "lastSeen":  null
-                                           },
-                                           {
-                                               "id":  "bofa_finance",
-                                               "name":  "Finance",
-                                               "standard":  "Level 6",
-                                               "location":  "Chester",
-                                               "salary":  "~£27,000",
-                                               "duration":  "4 years",
-                                               "status":  "not_open",
-                                               "closingDate":  null,
-                                               "applyUrl":  null,
-                                               "govVacancyId":  null,
-                                               "firstSeen":  null,
-                                               "lastSeen":  null
-                                           }
-                                       ]
-                      },
-                      {
-                          "id":  "ubs",
-                          "name":  "UBS",
-                          "sector":  "finance",
-                          "color":  "#ec0016",
-                          "employerNameVariants":  [
-                                                       "UBS AG",
-                                                       "UBS Europe",
-                                                       "UBS"
-                                                   ],
-                          "careerUrl":  "https://www.ubs.com/global/en/careers/students-graduates.html",
-                          "govSearchUrl":  "https://www.findapprenticeship.service.gov.uk/apprenticeships?searchTerm=UBS\u0026levelIds=6\u0026distanceType=England",
-                          "historicalCycles":  [
-                                                   {
-                                                       "year":  2025,
-                                                       "openedMonth":  9,
-                                                       "closedMonth":  11
-                                                   },
-                                                   {
-                                                       "year":  2024,
-                                                       "openedMonth":  9,
-                                                       "closedMonth":  11
-                                                   }
-                                               ],
-                          "programs":  [
-                                           {
-                                               "id":  "ubs_ops",
-                                               "name":  "Operations \u0026 Finance",
-                                               "standard":  "Level 6",
-                                               "location":  "London",
-                                               "salary":  "~£27,000",
-                                               "duration":  "4 years",
-                                               "status":  "not_open",
-                                               "closingDate":  null,
-                                               "applyUrl":  null,
-                                               "govVacancyId":  null,
-                                               "firstSeen":  null,
-                                               "lastSeen":  null
-                                           },
-                                           {
-                                               "id":  "ubs_wealth",
-                                               "name":  "Wealth Management",
-                                               "standard":  "Level 6",
-                                               "location":  "London",
-                                               "salary":  "~£27,000",
-                                               "duration":  "4 years",
-                                               "status":  "not_open",
-                                               "closingDate":  null,
-                                               "applyUrl":  null,
-                                               "govVacancyId":  null,
-                                               "firstSeen":  null,
-                                               "lastSeen":  null
-                                           }
-                                       ]
-                      },
-                      {
-                          "id":  "deutschebank",
-                          "name":  "Deutsche Bank",
-                          "sector":  "finance",
-                          "color":  "#0018a8",
-                          "employerNameVariants":  [
-                                                       "Deutsche Bank AG",
-                                                       "Deutsche Bank",
-                                                       "DB"
-                                                   ],
-                          "careerUrl":  "https://careers.db.com/students-and-graduates/",
-                          "govSearchUrl":  "https://www.findapprenticeship.service.gov.uk/apprenticeships?searchTerm=Deutsche+Bank\u0026levelIds=6\u0026distanceType=England",
-                          "historicalCycles":  [
-                                                   {
-                                                       "year":  2025,
-                                                       "openedMonth":  9,
-                                                       "closedMonth":  11
-                                                   },
-                                                   {
-                                                       "year":  2024,
-                                                       "openedMonth":  9,
-                                                       "closedMonth":  11
-                                                   }
-                                               ],
-                          "programs":  [
-                                           {
-                                               "id":  "db_ib",
-                                               "name":  "Investment Banking Operations",
-                                               "standard":  "Level 6",
-                                               "location":  "London / Birmingham",
-                                               "salary":  "~£26,000",
-                                               "duration":  "4 years",
-                                               "status":  "not_open",
-                                               "closingDate":  null,
-                                               "applyUrl":  null,
-                                               "govVacancyId":  null,
-                                               "firstSeen":  null,
-                                               "lastSeen":  null
-                                           },
-                                           {
-                                               "id":  "db_finance",
-                                               "name":  "Finance \u0026 Risk",
-                                               "standard":  "Level 6",
-                                               "location":  "Birmingham",
-                                               "salary":  "~£26,000",
-                                               "duration":  "4 years",
-                                               "status":  "not_open",
-                                               "closingDate":  null,
-                                               "applyUrl":  null,
-                                               "govVacancyId":  null,
-                                               "firstSeen":  null,
-                                               "lastSeen":  null
-                                           }
-                                       ]
-                      },
-                      {
-                          "id":  "lloyds",
-                          "name":  "Lloyds Banking Group",
-                          "sector":  "finance",
-                          "color":  "#024731",
-                          "employerNameVariants":  [
-                                                       "Lloyds Banking Group",
-                                                       "Lloyds Bank plc",
-                                                       "Lloyds"
-                                                   ],
-                          "careerUrl":  "https://www.lloydsbankinggroup.com/careers/early-careers.html",
-                          "govSearchUrl":  "https://www.findapprenticeship.service.gov.uk/apprenticeships?searchTerm=Lloyds+Banking+Group\u0026levelIds=6\u0026distanceType=England",
-                          "historicalCycles":  [
-                                                   {
-                                                       "year":  2025,
-                                                       "openedMonth":  9,
-                                                       "closedMonth":  11
-                                                   },
-                                                   {
-                                                       "year":  2024,
-                                                       "openedMonth":  9,
-                                                       "closedMonth":  11
-                                                   }
-                                               ],
-                          "programs":  [
-                                           {
-                                               "id":  "lloyds_banking",
-                                               "name":  "Banking \u0026 Relationship Management",
-                                               "standard":  "Level 6",
-                                               "location":  "London / Halifax",
-                                               "salary":  "~£24,000",
-                                               "duration":  "3 years",
-                                               "status":  "not_open",
-                                               "closingDate":  null,
-                                               "applyUrl":  null,
-                                               "govVacancyId":  null,
-                                               "firstSeen":  null,
-                                               "lastSeen":  null
-                                           },
-                                           {
-                                               "id":  "lloyds_finance",
-                                               "name":  "Finance",
-                                               "standard":  "Level 6",
-                                               "location":  "Edinburgh",
-                                               "salary":  "~£24,000",
-                                               "duration":  "4 years",
-                                               "status":  "not_open",
-                                               "closingDate":  null,
-                                               "applyUrl":  null,
-                                               "govVacancyId":  null,
-                                               "firstSeen":  null,
-                                               "lastSeen":  null
-                                           }
-                                       ]
-                      },
-                      {
-                          "id":  "natwest",
-                          "name":  "NatWest",
-                          "sector":  "finance",
-                          "color":  "#5a287d",
-                          "employerNameVariants":  [
-                                                       "National Westminster Bank",
-                                                       "NatWest Group",
-                                                       "NatWest"
-                                                   ],
-                          "careerUrl":  "https://jobs.natwestgroup.com/pages/early-careers",
-                          "govSearchUrl":  "https://www.findapprenticeship.service.gov.uk/apprenticeships?searchTerm=NatWest\u0026levelIds=6\u0026distanceType=England",
-                          "historicalCycles":  [
-                                                   {
-                                                       "year":  2025,
-                                                       "openedMonth":  9,
-                                                       "closedMonth":  11
-                                                   },
-                                                   {
-                                                       "year":  2024,
-                                                       "openedMonth":  9,
-                                                       "closedMonth":  11
-                                                   }
-                                               ],
-                          "programs":  [
-                                           {
-                                               "id":  "natwest_commercial",
-                                               "name":  "Commercial Banking",
-                                               "standard":  "Level 6",
-                                               "location":  "London / Manchester",
-                                               "salary":  "~£24,000",
-                                               "duration":  "3 years",
-                                               "status":  "not_open",
-                                               "closingDate":  null,
-                                               "applyUrl":  null,
-                                               "govVacancyId":  null,
-                                               "firstSeen":  null,
-                                               "lastSeen":  null
-                                           },
-                                           {
-                                               "id":  "natwest_finance",
-                                               "name":  "Finance",
-                                               "standard":  "Level 6",
-                                               "location":  "Edinburgh",
-                                               "salary":  "~£24,000",
-                                               "duration":  "4 years",
-                                               "status":  "not_open",
-                                               "closingDate":  null,
-                                               "applyUrl":  null,
-                                               "govVacancyId":  null,
-                                               "firstSeen":  null,
-                                               "lastSeen":  null
-                                           }
-                                       ]
-                      },
-                      {
-                          "id":  "santander",
-                          "name":  "Santander",
-                          "sector":  "finance",
-                          "color":  "#ec0000",
-                          "employerNameVariants":  [
-                                                       "Santander UK plc",
-                                                       "Santander UK",
-                                                       "Santander"
-                                                   ],
-                          "careerUrl":  "https://www.santander.co.uk/about-santander/careers",
-                          "govSearchUrl":  "https://www.findapprenticeship.service.gov.uk/apprenticeships?searchTerm=Santander\u0026levelIds=6\u0026distanceType=England",
-                          "historicalCycles":  [
-                                                   {
-                                                       "year":  2025,
-                                                       "openedMonth":  9,
-                                                       "closedMonth":  11
-                                                   },
-                                                   {
-                                                       "year":  2024,
-                                                       "openedMonth":  9,
-                                                       "closedMonth":  11
-                                                   }
-                                               ],
-                          "programs":  [
-                                           {
-                                               "id":  "santander_banking",
-                                               "name":  "Banking \u0026 Customer",
-                                               "standard":  "Level 6",
-                                               "location":  "Milton Keynes / London",
-                                               "salary":  "~£23,000",
-                                               "duration":  "3 years",
-                                               "status":  "not_open",
-                                               "closingDate":  null,
-                                               "applyUrl":  null,
-                                               "govVacancyId":  null,
-                                               "firstSeen":  null,
-                                               "lastSeen":  null
-                                           },
-                                           {
-                                               "id":  "santander_finance",
-                                               "name":  "Finance",
-                                               "standard":  "Level 6",
-                                               "location":  "Milton Keynes",
-                                               "salary":  "~£23,000",
-                                               "duration":  "4 years",
-                                               "status":  "not_open",
-                                               "closingDate":  null,
-                                               "applyUrl":  null,
-                                               "govVacancyId":  null,
-                                               "firstSeen":  null,
-                                               "lastSeen":  null
-                                           }
-                                       ]
-                      }
-                  ]
+  "meta": {
+    "lastUpdated": "2026-07-02T15:56:58Z",
+    "version": 4,
+    "seenVacancyIds": [],
+    "newSinceLastScrape": []
+  },
+  "interestListings": [],
+  "companies": [
+    {
+      "id": "hsbc",
+      "name": "HSBC",
+      "sector": "finance",
+      "color": "#db0011",
+      "employerNameVariants": [
+        "HSBC Bank plc",
+        "HSBC UK Bank plc",
+        "HSBC"
+      ],
+      "careerUrl": "https://www.hsbc.com/careers/students-and-graduates/student-opportunities",
+      "govSearchUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeships?searchTerm=HSBC&levelIds=6&distanceType=England",
+      "historicalCycles": [
+        {
+          "year": 2025,
+          "openedMonth": 9,
+          "closedMonth": 10
+        },
+        {
+          "year": 2024,
+          "openedMonth": 9,
+          "closedMonth": 10
+        }
+      ],
+      "programs": [
+        {
+          "id": "hsbc_commercial",
+          "name": "Commercial Banking & Relationship Management",
+          "standard": "Level 6",
+          "location": "London / Birmingham",
+          "salary": "~£24,000",
+          "duration": "4 years",
+          "status": "not_open",
+          "closingDate": null,
+          "applyUrl": null,
+          "govVacancyId": null,
+          "firstSeen": null,
+          "lastSeen": null
+        },
+        {
+          "id": "hsbc_finance",
+          "name": "Finance",
+          "standard": "Level 6",
+          "location": "London",
+          "salary": "~£24,000",
+          "duration": "4 years",
+          "status": "not_open",
+          "closingDate": null,
+          "applyUrl": null,
+          "govVacancyId": null,
+          "firstSeen": null,
+          "lastSeen": null
+        }
+      ]
+    },
+    {
+      "id": "barclays",
+      "name": "Barclays",
+      "sector": "finance",
+      "color": "#00aeef",
+      "employerNameVariants": [
+        "Barclays Bank UK PLC",
+        "Barclays Bank PLC",
+        "Barclays"
+      ],
+      "careerUrl": "https://search.jobs.barclays/early-careers",
+      "govSearchUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeships?searchTerm=Barclays&levelIds=6&distanceType=England",
+      "historicalCycles": [
+        {
+          "year": 2025,
+          "openedMonth": 9,
+          "closedMonth": 11
+        },
+        {
+          "year": 2024,
+          "openedMonth": 9,
+          "closedMonth": 11
+        }
+      ],
+      "programs": [
+        {
+          "id": "barclays_relationship",
+          "name": "Relationship & Corporate Banking",
+          "standard": "Level 6",
+          "location": "London / Birmingham",
+          "salary": "~£24,000",
+          "duration": "4 years",
+          "status": "not_open",
+          "closingDate": null,
+          "applyUrl": null,
+          "govVacancyId": null,
+          "firstSeen": null,
+          "lastSeen": null
+        },
+        {
+          "id": "barclays_finance",
+          "name": "Finance & Risk",
+          "standard": "Level 6",
+          "location": "London / Glasgow",
+          "salary": "~£24,000",
+          "duration": "4 years",
+          "status": "not_open",
+          "closingDate": null,
+          "applyUrl": null,
+          "govVacancyId": null,
+          "firstSeen": null,
+          "lastSeen": null
+        }
+      ]
+    },
+    {
+      "id": "goldman",
+      "name": "Goldman Sachs",
+      "sector": "finance",
+      "color": "#7399c6",
+      "employerNameVariants": [
+        "Goldman Sachs International",
+        "Goldman Sachs & Co",
+        "Goldman Sachs"
+      ],
+      "careerUrl": "https://www.goldmansachs.com/careers/students/programs",
+      "govSearchUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeships?searchTerm=Goldman+Sachs&levelIds=6&distanceType=England",
+      "historicalCycles": [
+        {
+          "year": 2025,
+          "openedMonth": 10,
+          "closedMonth": 11
+        },
+        {
+          "year": 2024,
+          "openedMonth": 10,
+          "closedMonth": 11
+        }
+      ],
+      "programs": [
+        {
+          "id": "goldman_finance",
+          "name": "Finance & Business Operations",
+          "standard": "Level 6",
+          "location": "London / Birmingham",
+          "salary": "~£28,000",
+          "duration": "4 years",
+          "status": "not_open",
+          "closingDate": null,
+          "applyUrl": null,
+          "govVacancyId": null,
+          "firstSeen": null,
+          "lastSeen": null
+        },
+        {
+          "id": "goldman_wealth",
+          "name": "Wealth Management",
+          "standard": "Level 6",
+          "location": "London",
+          "salary": "~£28,000",
+          "duration": "4 years",
+          "status": "not_open",
+          "closingDate": null,
+          "applyUrl": null,
+          "govVacancyId": null,
+          "firstSeen": null,
+          "lastSeen": null
+        }
+      ]
+    },
+    {
+      "id": "jpmorgan",
+      "name": "JPMorgan",
+      "sector": "finance",
+      "color": "#5d4a36",
+      "employerNameVariants": [
+        "JPMorgan Chase Bank",
+        "J.P. Morgan",
+        "JP Morgan",
+        "JPMorgan"
+      ],
+      "careerUrl": "https://www.jpmorganchase.com/careers/explore-opportunities/students-and-graduates",
+      "govSearchUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeships?searchTerm=JPMorgan&levelIds=6&distanceType=England",
+      "historicalCycles": [
+        {
+          "year": 2025,
+          "openedMonth": 9,
+          "closedMonth": 10
+        },
+        {
+          "year": 2024,
+          "openedMonth": 9,
+          "closedMonth": 10
+        }
+      ],
+      "programs": [
+        {
+          "id": "jpmorgan_finance",
+          "name": "Finance & Business Operations",
+          "standard": "Level 6",
+          "location": "Bournemouth / Glasgow",
+          "salary": "~£26,000",
+          "duration": "4 years",
+          "status": "not_open",
+          "closingDate": null,
+          "applyUrl": null,
+          "govVacancyId": null,
+          "firstSeen": null,
+          "lastSeen": null
+        },
+        {
+          "id": "jpmorgan_client",
+          "name": "Operations & Client Service",
+          "standard": "Level 6",
+          "location": "Bournemouth",
+          "salary": "~£26,000",
+          "duration": "4 years",
+          "status": "not_open",
+          "closingDate": null,
+          "applyUrl": null,
+          "govVacancyId": null,
+          "firstSeen": null,
+          "lastSeen": null
+        }
+      ]
+    },
+    {
+      "id": "morganstanley",
+      "name": "Morgan Stanley",
+      "sector": "finance",
+      "color": "#1d4f91",
+      "employerNameVariants": [
+        "Morgan Stanley & Co International",
+        "Morgan Stanley UK",
+        "Morgan Stanley"
+      ],
+      "careerUrl": "https://www.morganstanley.com/people-opportunities/students-graduates",
+      "govSearchUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeships?searchTerm=Morgan+Stanley&levelIds=6&distanceType=England",
+      "historicalCycles": [
+        {
+          "year": 2025,
+          "openedMonth": 9,
+          "closedMonth": 11
+        },
+        {
+          "year": 2024,
+          "openedMonth": 9,
+          "closedMonth": 11
+        }
+      ],
+      "programs": [
+        {
+          "id": "morganstanley_finance",
+          "name": "Finance & Operations",
+          "standard": "Level 6",
+          "location": "London / Glasgow",
+          "salary": "~£28,000",
+          "duration": "4 years",
+          "status": "not_open",
+          "closingDate": null,
+          "applyUrl": null,
+          "govVacancyId": null,
+          "firstSeen": null,
+          "lastSeen": null
+        },
+        {
+          "id": "morganstanley_wealth",
+          "name": "Wealth Management",
+          "standard": "Level 6",
+          "location": "London",
+          "salary": "~£28,000",
+          "duration": "4 years",
+          "status": "not_open",
+          "closingDate": null,
+          "applyUrl": null,
+          "govVacancyId": null,
+          "firstSeen": null,
+          "lastSeen": null
+        }
+      ]
+    },
+    {
+      "id": "citi",
+      "name": "Citi",
+      "sector": "finance",
+      "color": "#056dae",
+      "employerNameVariants": [
+        "Citigroup Global Markets",
+        "Citibank",
+        "Citi"
+      ],
+      "careerUrl": "https://www.citigroup.com/global/early-careers",
+      "govSearchUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeships?searchTerm=Citi&levelIds=6&distanceType=England",
+      "historicalCycles": [
+        {
+          "year": 2025,
+          "openedMonth": 9,
+          "closedMonth": 11
+        },
+        {
+          "year": 2024,
+          "openedMonth": 9,
+          "closedMonth": 11
+        }
+      ],
+      "programs": [
+        {
+          "id": "citi_markets",
+          "name": "Markets & Banking Operations",
+          "standard": "Level 6",
+          "location": "London / Belfast",
+          "salary": "~£27,000",
+          "duration": "4 years",
+          "status": "not_open",
+          "closingDate": null,
+          "applyUrl": null,
+          "govVacancyId": null,
+          "firstSeen": null,
+          "lastSeen": null
+        },
+        {
+          "id": "citi_finance",
+          "name": "Finance",
+          "standard": "Level 6",
+          "location": "Belfast",
+          "salary": "~£27,000",
+          "duration": "4 years",
+          "status": "not_open",
+          "closingDate": null,
+          "applyUrl": null,
+          "govVacancyId": null,
+          "firstSeen": null,
+          "lastSeen": null
+        }
+      ]
+    },
+    {
+      "id": "bofa",
+      "name": "Bank of America",
+      "sector": "finance",
+      "color": "#e31837",
+      "employerNameVariants": [
+        "Bank of America Merrill Lynch",
+        "Bank of America",
+        "Merrill Lynch"
+      ],
+      "careerUrl": "https://campus.bankofamerica.com/",
+      "govSearchUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeships?searchTerm=Bank+of+America&levelIds=6&distanceType=England",
+      "historicalCycles": [
+        {
+          "year": 2025,
+          "openedMonth": 9,
+          "closedMonth": 11
+        },
+        {
+          "year": 2024,
+          "openedMonth": 9,
+          "closedMonth": 11
+        }
+      ],
+      "programs": [
+        {
+          "id": "bofa_markets",
+          "name": "Global Banking & Markets Operations",
+          "standard": "Level 6",
+          "location": "London / Chester",
+          "salary": "~£27,000",
+          "duration": "4 years",
+          "status": "not_open",
+          "closingDate": null,
+          "applyUrl": null,
+          "govVacancyId": null,
+          "firstSeen": null,
+          "lastSeen": null
+        },
+        {
+          "id": "bofa_finance",
+          "name": "Finance",
+          "standard": "Level 6",
+          "location": "Chester",
+          "salary": "~£27,000",
+          "duration": "4 years",
+          "status": "not_open",
+          "closingDate": null,
+          "applyUrl": null,
+          "govVacancyId": null,
+          "firstSeen": null,
+          "lastSeen": null
+        }
+      ]
+    },
+    {
+      "id": "ubs",
+      "name": "UBS",
+      "sector": "finance",
+      "color": "#ec0016",
+      "employerNameVariants": [
+        "UBS AG",
+        "UBS Europe",
+        "UBS"
+      ],
+      "careerUrl": "https://www.ubs.com/global/en/careers/students-graduates.html",
+      "govSearchUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeships?searchTerm=UBS&levelIds=6&distanceType=England",
+      "historicalCycles": [
+        {
+          "year": 2025,
+          "openedMonth": 9,
+          "closedMonth": 11
+        },
+        {
+          "year": 2024,
+          "openedMonth": 9,
+          "closedMonth": 11
+        }
+      ],
+      "programs": [
+        {
+          "id": "ubs_ops",
+          "name": "Operations & Finance",
+          "standard": "Level 6",
+          "location": "London",
+          "salary": "~£27,000",
+          "duration": "4 years",
+          "status": "not_open",
+          "closingDate": null,
+          "applyUrl": null,
+          "govVacancyId": null,
+          "firstSeen": null,
+          "lastSeen": null
+        },
+        {
+          "id": "ubs_wealth",
+          "name": "Wealth Management",
+          "standard": "Level 6",
+          "location": "London",
+          "salary": "~£27,000",
+          "duration": "4 years",
+          "status": "not_open",
+          "closingDate": null,
+          "applyUrl": null,
+          "govVacancyId": null,
+          "firstSeen": null,
+          "lastSeen": null
+        }
+      ]
+    },
+    {
+      "id": "deutschebank",
+      "name": "Deutsche Bank",
+      "sector": "finance",
+      "color": "#0018a8",
+      "employerNameVariants": [
+        "Deutsche Bank AG",
+        "Deutsche Bank",
+        "DB"
+      ],
+      "careerUrl": "https://careers.db.com/students-and-graduates/",
+      "govSearchUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeships?searchTerm=Deutsche+Bank&levelIds=6&distanceType=England",
+      "historicalCycles": [
+        {
+          "year": 2025,
+          "openedMonth": 9,
+          "closedMonth": 11
+        },
+        {
+          "year": 2024,
+          "openedMonth": 9,
+          "closedMonth": 11
+        }
+      ],
+      "programs": [
+        {
+          "id": "db_ib",
+          "name": "Investment Banking Operations",
+          "standard": "Level 6",
+          "location": "London / Birmingham",
+          "salary": "~£26,000",
+          "duration": "4 years",
+          "status": "not_open",
+          "closingDate": null,
+          "applyUrl": null,
+          "govVacancyId": null,
+          "firstSeen": null,
+          "lastSeen": null
+        },
+        {
+          "id": "db_finance",
+          "name": "Finance & Risk",
+          "standard": "Level 6",
+          "location": "Birmingham",
+          "salary": "~£26,000",
+          "duration": "4 years",
+          "status": "not_open",
+          "closingDate": null,
+          "applyUrl": null,
+          "govVacancyId": null,
+          "firstSeen": null,
+          "lastSeen": null
+        }
+      ]
+    },
+    {
+      "id": "lloyds",
+      "name": "Lloyds Banking Group",
+      "sector": "finance",
+      "color": "#024731",
+      "employerNameVariants": [
+        "Lloyds Banking Group",
+        "Lloyds Bank plc",
+        "Lloyds"
+      ],
+      "careerUrl": "https://www.lloydsbankinggroup.com/careers/early-careers.html",
+      "govSearchUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeships?searchTerm=Lloyds+Banking+Group&levelIds=6&distanceType=England",
+      "historicalCycles": [
+        {
+          "year": 2025,
+          "openedMonth": 9,
+          "closedMonth": 11
+        },
+        {
+          "year": 2024,
+          "openedMonth": 9,
+          "closedMonth": 11
+        }
+      ],
+      "programs": [
+        {
+          "id": "lloyds_banking",
+          "name": "Banking & Relationship Management",
+          "standard": "Level 6",
+          "location": "London / Halifax",
+          "salary": "~£24,000",
+          "duration": "3 years",
+          "status": "not_open",
+          "closingDate": null,
+          "applyUrl": null,
+          "govVacancyId": null,
+          "firstSeen": null,
+          "lastSeen": null
+        },
+        {
+          "id": "lloyds_finance",
+          "name": "Finance",
+          "standard": "Level 6",
+          "location": "Edinburgh",
+          "salary": "~£24,000",
+          "duration": "4 years",
+          "status": "not_open",
+          "closingDate": null,
+          "applyUrl": null,
+          "govVacancyId": null,
+          "firstSeen": null,
+          "lastSeen": null
+        }
+      ]
+    },
+    {
+      "id": "natwest",
+      "name": "NatWest",
+      "sector": "finance",
+      "color": "#5a287d",
+      "employerNameVariants": [
+        "National Westminster Bank",
+        "NatWest Group",
+        "NatWest"
+      ],
+      "careerUrl": "https://jobs.natwestgroup.com/pages/early-careers",
+      "govSearchUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeships?searchTerm=NatWest&levelIds=6&distanceType=England",
+      "historicalCycles": [
+        {
+          "year": 2025,
+          "openedMonth": 9,
+          "closedMonth": 11
+        },
+        {
+          "year": 2024,
+          "openedMonth": 9,
+          "closedMonth": 11
+        }
+      ],
+      "programs": [
+        {
+          "id": "natwest_commercial",
+          "name": "Commercial Banking",
+          "standard": "Level 6",
+          "location": "London / Manchester",
+          "salary": "~£24,000",
+          "duration": "3 years",
+          "status": "not_open",
+          "closingDate": null,
+          "applyUrl": null,
+          "govVacancyId": null,
+          "firstSeen": null,
+          "lastSeen": null
+        },
+        {
+          "id": "natwest_finance",
+          "name": "Finance",
+          "standard": "Level 6",
+          "location": "Edinburgh",
+          "salary": "~£24,000",
+          "duration": "4 years",
+          "status": "not_open",
+          "closingDate": null,
+          "applyUrl": null,
+          "govVacancyId": null,
+          "firstSeen": null,
+          "lastSeen": null
+        }
+      ]
+    },
+    {
+      "id": "santander",
+      "name": "Santander",
+      "sector": "finance",
+      "color": "#ec0000",
+      "employerNameVariants": [
+        "Santander UK plc",
+        "Santander UK",
+        "Santander"
+      ],
+      "careerUrl": "https://www.santander.co.uk/about-santander/careers",
+      "govSearchUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeships?searchTerm=Santander&levelIds=6&distanceType=England",
+      "historicalCycles": [
+        {
+          "year": 2025,
+          "openedMonth": 9,
+          "closedMonth": 11
+        },
+        {
+          "year": 2024,
+          "openedMonth": 9,
+          "closedMonth": 11
+        }
+      ],
+      "programs": [
+        {
+          "id": "santander_banking",
+          "name": "Banking & Customer",
+          "standard": "Level 6",
+          "location": "Milton Keynes / London",
+          "salary": "~£23,000",
+          "duration": "3 years",
+          "status": "not_open",
+          "closingDate": null,
+          "applyUrl": null,
+          "govVacancyId": null,
+          "firstSeen": null,
+          "lastSeen": null
+        },
+        {
+          "id": "santander_finance",
+          "name": "Finance",
+          "standard": "Level 6",
+          "location": "Milton Keynes",
+          "salary": "~£23,000",
+          "duration": "4 years",
+          "status": "not_open",
+          "closingDate": null,
+          "applyUrl": null,
+          "govVacancyId": null,
+          "firstSeen": null,
+          "lastSeen": null
+        }
+      ]
+    }
+  ]
 }
