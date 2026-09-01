@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-31T15:45:01Z",
+    "lastUpdated": "2026-09-01T12:57:38Z",
     "version": 4,
     "seenVacancyIds": [
       "VAC2000048729"
@@ -151,12 +151,12 @@
           "location": "22 Dulwich Wood Park (SE19 1HL) and 2 other locations",
           "salary": null,
           "duration": "",
-          "status": "closing_soon",
-          "closingDate": "2026-09-01",
+          "status": "open",
+          "closingDate": null,
           "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000048729",
           "govVacancyId": "VAC2000048729",
-          "firstSeen": "2026-08-31",
-          "lastSeen": "2026-08-31"
+          "firstSeen": "2026-09-01",
+          "lastSeen": "2026-09-01"
         },
         {
           "id": "VAC2000048729",
@@ -165,12 +165,12 @@
           "location": "London (SE21 7HW) and 2 other locations",
           "salary": null,
           "duration": "",
-          "status": "closing_soon",
-          "closingDate": "2026-09-01",
+          "status": "open",
+          "closingDate": null,
           "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000048729",
           "govVacancyId": "VAC2000048729",
-          "firstSeen": "2026-08-31",
-          "lastSeen": "2026-08-31"
+          "firstSeen": "2026-09-01",
+          "lastSeen": "2026-09-01"
         },
         {
           "id": "VAC2000048729",
@@ -179,12 +179,12 @@
           "location": "South Croydon (CR2 0NY) and 2 other locations",
           "salary": null,
           "duration": "",
-          "status": "closing_soon",
-          "closingDate": "2026-09-01",
+          "status": "open",
+          "closingDate": null,
           "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000048729",
           "govVacancyId": "VAC2000048729",
-          "firstSeen": "2026-08-31",
-          "lastSeen": "2026-08-31"
+          "firstSeen": "2026-09-01",
+          "lastSeen": "2026-09-01"
         }
       ]
     },
