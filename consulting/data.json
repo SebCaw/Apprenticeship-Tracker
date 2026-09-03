@@ -1,11 +1,14 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-02T12:27:21Z",
+    "lastUpdated": "2026-09-03T12:28:23Z",
     "version": 4,
     "seenVacancyIds": [
-      "VAC2000048729"
+      "VAC2000048729",
+      "VAC2000051213"
     ],
-    "newSinceLastScrape": []
+    "newSinceLastScrape": [
+      "VAC2000051213"
+    ]
   },
   "interestListings": [],
   "companies": [
@@ -145,35 +148,7 @@
       ],
       "programs": [
         {
-          "id": "VAC2000048729",
-          "name": "Early Years Initial Teacher Training (EYITT) Dulwich Montessori Nursery Apprentice",
-          "standard": "Level 6",
-          "location": "22 Dulwich Wood Park (SE19 1HL) and 2 other locations",
-          "salary": null,
-          "duration": "",
-          "status": "open",
-          "closingDate": null,
-          "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000048729",
-          "govVacancyId": "VAC2000048729",
-          "firstSeen": "2026-09-01",
-          "lastSeen": "2026-09-01"
-        },
-        {
-          "id": "VAC2000048729",
-          "name": "Early Years Initial Teacher Training (EYITT) Dulwich Montessori Nursery Apprentice",
-          "standard": "Level 6",
-          "location": "London (SE21 7HW) and 2 other locations",
-          "salary": null,
-          "duration": "",
-          "status": "open",
-          "closingDate": null,
-          "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000048729",
-          "govVacancyId": "VAC2000048729",
-          "firstSeen": "2026-09-01",
-          "lastSeen": "2026-09-01"
-        },
-        {
-          "id": "VAC2000048729",
+          "id": "VAC2000051213",
           "name": "Early Years Initial Teacher Training (EYITT) Dulwich Montessori Nursery Apprentice",
           "standard": "Level 6",
           "location": "South Croydon (CR2 0NY) and 2 other locations",
@@ -181,10 +156,38 @@
           "duration": "",
           "status": "open",
           "closingDate": null,
-          "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000048729",
-          "govVacancyId": "VAC2000048729",
-          "firstSeen": "2026-09-01",
-          "lastSeen": "2026-09-01"
+          "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000051213",
+          "govVacancyId": "VAC2000051213",
+          "firstSeen": "2026-09-03",
+          "lastSeen": "2026-09-03"
+        },
+        {
+          "id": "VAC2000051213",
+          "name": "Early Years Initial Teacher Training (EYITT) Dulwich Montessori Nursery Apprentice",
+          "standard": "Level 6",
+          "location": "22 Dulwich Wood Park (SE19 1HL) and 2 other locations",
+          "salary": null,
+          "duration": "",
+          "status": "open",
+          "closingDate": null,
+          "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000051213",
+          "govVacancyId": "VAC2000051213",
+          "firstSeen": "2026-09-03",
+          "lastSeen": "2026-09-03"
+        },
+        {
+          "id": "VAC2000051213",
+          "name": "Early Years Initial Teacher Training (EYITT) Dulwich Montessori Nursery Apprentice",
+          "standard": "Level 6",
+          "location": "London (SE21 7HW) and 2 other locations",
+          "salary": null,
+          "duration": "",
+          "status": "open",
+          "closingDate": null,
+          "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000051213",
+          "govVacancyId": "VAC2000051213",
+          "firstSeen": "2026-09-03",
+          "lastSeen": "2026-09-03"
         }
       ]
     },
