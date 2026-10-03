@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-26T12:36:35Z",
+    "lastUpdated": "2026-10-03T12:56:45Z",
     "version": 4,
     "seenVacancyIds": [
       "VAC2000048729",
@@ -153,11 +153,11 @@
           "salary": null,
           "duration": "",
           "status": "open",
-          "closingDate": null,
+          "closingDate": "2026-10-31",
           "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000051213",
           "govVacancyId": "VAC2000051213",
-          "firstSeen": "2026-09-26",
-          "lastSeen": "2026-09-26"
+          "firstSeen": "2026-10-03",
+          "lastSeen": "2026-10-03"
         },
         {
           "id": "VAC2000051213",
@@ -167,11 +167,11 @@
           "salary": null,
           "duration": "",
           "status": "open",
-          "closingDate": null,
+          "closingDate": "2026-10-31",
           "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000051213",
           "govVacancyId": "VAC2000051213",
-          "firstSeen": "2026-09-26",
-          "lastSeen": "2026-09-26"
+          "firstSeen": "2026-10-03",
+          "lastSeen": "2026-10-03"
         },
         {
           "id": "VAC2000051213",
@@ -181,11 +181,11 @@
           "salary": null,
           "duration": "",
           "status": "open",
-          "closingDate": null,
+          "closingDate": "2026-10-31",
           "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000051213",
           "govVacancyId": "VAC2000051213",
-          "firstSeen": "2026-09-26",
-          "lastSeen": "2026-09-26"
+          "firstSeen": "2026-10-03",
+          "lastSeen": "2026-10-03"
         }
       ]
     },

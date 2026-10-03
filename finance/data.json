@@ -1,9 +1,23 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-26T12:36:35Z",
+    "lastUpdated": "2026-10-03T12:56:45Z",
     "version": 4,
-    "seenVacancyIds": [],
-    "newSinceLastScrape": []
+    "seenVacancyIds": [
+      "VAC2000055565",
+      "VAC2000055548",
+      "VAC2000055580",
+      "VAC2000055573",
+      "VAC2000055584",
+      "VAC2000055590"
+    ],
+    "newSinceLastScrape": [
+      "VAC2000055565",
+      "VAC2000055548",
+      "VAC2000055580",
+      "VAC2000055573",
+      "VAC2000055584",
+      "VAC2000055590"
+    ]
   },
   "interestListings": [],
   "companies": [
@@ -33,32 +47,88 @@
       ],
       "programs": [
         {
-          "id": "hsbc_commercial",
-          "name": "Commercial Banking & Relationship Management",
+          "id": "VAC2000055565",
+          "name": "Degree Apprenticeship - Commercial Banking - London- HSBC",
           "standard": "Level 6",
-          "location": "London / Birmingham",
-          "salary": "~£24,000",
-          "duration": "4 years",
-          "status": "not_open",
-          "closingDate": null,
-          "applyUrl": null,
-          "govVacancyId": null,
-          "firstSeen": null,
-          "lastSeen": null
+          "location": "London (E14 5HQ)",
+          "salary": null,
+          "duration": "",
+          "status": "closing_soon",
+          "closingDate": "2026-10-11",
+          "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000055565",
+          "govVacancyId": "VAC2000055565",
+          "firstSeen": "2026-10-03",
+          "lastSeen": "2026-10-03"
         },
         {
-          "id": "hsbc_finance",
-          "name": "Finance",
+          "id": "VAC2000055548",
+          "name": "Degree Apprenticeship - Commercial Banking - Birmingham - HSBC",
           "standard": "Level 6",
-          "location": "London",
-          "salary": "~£24,000",
-          "duration": "4 years",
-          "status": "not_open",
-          "closingDate": null,
-          "applyUrl": null,
-          "govVacancyId": null,
-          "firstSeen": null,
-          "lastSeen": null
+          "location": "Birmingham (B1 1HQ)",
+          "salary": null,
+          "duration": "",
+          "status": "open",
+          "closingDate": "2026-10-25",
+          "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000055548",
+          "govVacancyId": "VAC2000055548",
+          "firstSeen": "2026-10-03",
+          "lastSeen": "2026-10-03"
+        },
+        {
+          "id": "VAC2000055580",
+          "name": "Degree Apprenticeship - Commercial Banking - Bristol - HSBC",
+          "standard": "Level 6",
+          "location": "Bristol (BS1 3BA)",
+          "salary": null,
+          "duration": "",
+          "status": "open",
+          "closingDate": "2026-10-25",
+          "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000055580",
+          "govVacancyId": "VAC2000055580",
+          "firstSeen": "2026-10-03",
+          "lastSeen": "2026-10-03"
+        },
+        {
+          "id": "VAC2000055573",
+          "name": "Degree Apprenticeship - Commercial Banking - Manchester- HSBC",
+          "standard": "Level 6",
+          "location": "Manchester (M2 7HD)",
+          "salary": null,
+          "duration": "",
+          "status": "open",
+          "closingDate": "2026-10-25",
+          "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000055573",
+          "govVacancyId": "VAC2000055573",
+          "firstSeen": "2026-10-03",
+          "lastSeen": "2026-10-03"
+        },
+        {
+          "id": "VAC2000055584",
+          "name": "Degree Apprenticeship - Retail Banking - Birmingham - HSBC",
+          "standard": "Level 6",
+          "location": "Birmingham (B1 1HQ)",
+          "salary": null,
+          "duration": "",
+          "status": "open",
+          "closingDate": "2026-10-25",
+          "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000055584",
+          "govVacancyId": "VAC2000055584",
+          "firstSeen": "2026-10-03",
+          "lastSeen": "2026-10-03"
+        },
+        {
+          "id": "VAC2000055590",
+          "name": "Degree Apprenticeship - Retail Banking - Leeds - HSBC",
+          "standard": "Level 6",
+          "location": "40 Wakefield Road, Leeds (LS98 1FD)",
+          "salary": null,
+          "duration": "",
+          "status": "open",
+          "closingDate": "2026-10-25",
+          "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000055590",
+          "govVacancyId": "VAC2000055590",
+          "firstSeen": "2026-10-03",
+          "lastSeen": "2026-10-03"
         }
       ]
     },
