@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-13T15:29:49Z",
+    "lastUpdated": "2026-10-16T12:56:43Z",
     "version": 4,
     "seenVacancyIds": [
       "VAC2000055565",
@@ -40,48 +40,6 @@
       ],
       "programs": [
         {
-          "id": "VAC2000055548",
-          "name": "Degree Apprenticeship - Commercial Banking - Birmingham - HSBC",
-          "standard": "Level 6",
-          "location": "Birmingham (B1 1HQ)",
-          "salary": null,
-          "duration": "",
-          "status": "closing_soon",
-          "closingDate": "2026-10-25",
-          "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000055548",
-          "govVacancyId": "VAC2000055548",
-          "firstSeen": "2026-10-13",
-          "lastSeen": "2026-10-13"
-        },
-        {
-          "id": "VAC2000055580",
-          "name": "Degree Apprenticeship - Commercial Banking - Bristol - HSBC",
-          "standard": "Level 6",
-          "location": "Bristol (BS1 3BA)",
-          "salary": null,
-          "duration": "",
-          "status": "closing_soon",
-          "closingDate": "2026-10-25",
-          "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000055580",
-          "govVacancyId": "VAC2000055580",
-          "firstSeen": "2026-10-13",
-          "lastSeen": "2026-10-13"
-        },
-        {
-          "id": "VAC2000055573",
-          "name": "Degree Apprenticeship - Commercial Banking - Manchester- HSBC",
-          "standard": "Level 6",
-          "location": "Manchester (M2 7HD)",
-          "salary": null,
-          "duration": "",
-          "status": "closing_soon",
-          "closingDate": "2026-10-25",
-          "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000055573",
-          "govVacancyId": "VAC2000055573",
-          "firstSeen": "2026-10-13",
-          "lastSeen": "2026-10-13"
-        },
-        {
           "id": "VAC2000055584",
           "name": "Degree Apprenticeship - Retail Banking - Birmingham - HSBC",
           "standard": "Level 6",
@@ -92,8 +50,8 @@
           "closingDate": "2026-10-25",
           "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000055584",
           "govVacancyId": "VAC2000055584",
-          "firstSeen": "2026-10-13",
-          "lastSeen": "2026-10-13"
+          "firstSeen": "2026-10-16",
+          "lastSeen": "2026-10-16"
         },
         {
           "id": "VAC2000055590",
@@ -106,8 +64,8 @@
           "closingDate": "2026-10-25",
           "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000055590",
           "govVacancyId": "VAC2000055590",
-          "firstSeen": "2026-10-13",
-          "lastSeen": "2026-10-13"
+          "firstSeen": "2026-10-16",
+          "lastSeen": "2026-10-16"
         }
       ]
     },
