@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-16T12:56:43Z",
+    "lastUpdated": "2026-10-18T12:22:59Z",
     "version": 4,
     "seenVacancyIds": [
       "VAC2000048729",
@@ -152,12 +152,12 @@
           "location": "South Croydon (CR2 0NY) and 2 other locations",
           "salary": null,
           "duration": "",
-          "status": "open",
+          "status": "closing_soon",
           "closingDate": "2026-10-31",
           "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000051213",
           "govVacancyId": "VAC2000051213",
-          "firstSeen": "2026-10-16",
-          "lastSeen": "2026-10-16"
+          "firstSeen": "2026-10-18",
+          "lastSeen": "2026-10-18"
         },
         {
           "id": "VAC2000051213",
@@ -166,12 +166,12 @@
           "location": "22 Dulwich Wood Park (SE19 1HL) and 2 other locations",
           "salary": null,
           "duration": "",
-          "status": "open",
+          "status": "closing_soon",
           "closingDate": "2026-10-31",
           "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000051213",
           "govVacancyId": "VAC2000051213",
-          "firstSeen": "2026-10-16",
-          "lastSeen": "2026-10-16"
+          "firstSeen": "2026-10-18",
+          "lastSeen": "2026-10-18"
         },
         {
           "id": "VAC2000051213",
@@ -180,12 +180,12 @@
           "location": "London (SE21 7HW) and 2 other locations",
           "salary": null,
           "duration": "",
-          "status": "open",
+          "status": "closing_soon",
           "closingDate": "2026-10-31",
           "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000051213",
           "govVacancyId": "VAC2000051213",
-          "firstSeen": "2026-10-16",
-          "lastSeen": "2026-10-16"
+          "firstSeen": "2026-10-18",
+          "lastSeen": "2026-10-18"
         }
       ]
     },
