@@ -1,12 +1,17 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-18T12:22:59Z",
+    "lastUpdated": "2026-10-19T15:12:16Z",
     "version": 4,
     "seenVacancyIds": [
       "VAC2000048729",
-      "VAC2000051213"
+      "VAC2000051213",
+      "VAC2000059707",
+      "VAC2000059710"
     ],
-    "newSinceLastScrape": []
+    "newSinceLastScrape": [
+      "VAC2000059707",
+      "VAC2000059710"
+    ]
   },
   "interestListings": [],
   "companies": [
@@ -156,8 +161,8 @@
           "closingDate": "2026-10-31",
           "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000051213",
           "govVacancyId": "VAC2000051213",
-          "firstSeen": "2026-10-18",
-          "lastSeen": "2026-10-18"
+          "firstSeen": "2026-10-19",
+          "lastSeen": "2026-10-19"
         },
         {
           "id": "VAC2000051213",
@@ -170,8 +175,8 @@
           "closingDate": "2026-10-31",
           "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000051213",
           "govVacancyId": "VAC2000051213",
-          "firstSeen": "2026-10-18",
-          "lastSeen": "2026-10-18"
+          "firstSeen": "2026-10-19",
+          "lastSeen": "2026-10-19"
         },
         {
           "id": "VAC2000051213",
@@ -184,8 +189,8 @@
           "closingDate": "2026-10-31",
           "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000051213",
           "govVacancyId": "VAC2000051213",
-          "firstSeen": "2026-10-18",
-          "lastSeen": "2026-10-18"
+          "firstSeen": "2026-10-19",
+          "lastSeen": "2026-10-19"
         }
       ]
     },
@@ -325,32 +330,46 @@
       ],
       "programs": [
         {
-          "id": "capgemini_consulting",
-          "name": "Business Consulting",
+          "id": "VAC2000059707",
+          "name": "Digital &amp; Technology Solutions Degree Apprenticeship - Consulting - Capgemini Invent UK",
           "standard": "Level 6",
-          "location": "London / Telford",
-          "salary": "~£23,000",
-          "duration": "4 years",
-          "status": "not_open",
+          "location": "Manchester (M41 7HA) and 1 other location",
+          "salary": null,
+          "duration": "",
+          "status": "open",
           "closingDate": null,
-          "applyUrl": null,
-          "govVacancyId": null,
-          "firstSeen": null,
-          "lastSeen": null
+          "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000059707",
+          "govVacancyId": "VAC2000059707",
+          "firstSeen": "2026-10-19",
+          "lastSeen": "2026-10-19"
         },
         {
-          "id": "capgemini_digital",
-          "name": "Digital & Tech Consulting",
+          "id": "VAC2000059707",
+          "name": "Digital &amp; Technology Solutions Degree Apprenticeship - Consulting - Capgemini Invent UK",
           "standard": "Level 6",
-          "location": "London",
-          "salary": "~£23,000",
-          "duration": "4 years",
-          "status": "not_open",
+          "location": "Newcastle Upon Tyne (NE1 6QF) and 1 other location",
+          "salary": null,
+          "duration": "",
+          "status": "open",
           "closingDate": null,
-          "applyUrl": null,
-          "govVacancyId": null,
-          "firstSeen": null,
-          "lastSeen": null
+          "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000059707",
+          "govVacancyId": "VAC2000059707",
+          "firstSeen": "2026-10-19",
+          "lastSeen": "2026-10-19"
+        },
+        {
+          "id": "VAC2000059710",
+          "name": "SAP - Digital and Technology Solutions Degree Apprenticeship 2027",
+          "standard": "Level 6",
+          "location": "Hove (BN3 3WF)",
+          "salary": null,
+          "duration": "",
+          "status": "open",
+          "closingDate": null,
+          "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000059710",
+          "govVacancyId": "VAC2000059710",
+          "firstSeen": "2026-10-19",
+          "lastSeen": "2026-10-19"
         }
       ]
     },
