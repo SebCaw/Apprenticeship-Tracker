@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-24T12:23:43Z",
+    "lastUpdated": "2026-10-25T16:56:16Z",
     "version": 4,
     "seenVacancyIds": [
       "VAC2000055565",
@@ -46,12 +46,12 @@
           "location": "Birmingham (B1 1HQ)",
           "salary": null,
           "duration": "",
-          "status": "closing_soon",
-          "closingDate": "2026-10-25",
+          "status": "open",
+          "closingDate": null,
           "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000055584",
           "govVacancyId": "VAC2000055584",
-          "firstSeen": "2026-10-24",
-          "lastSeen": "2026-10-24"
+          "firstSeen": "2026-10-25",
+          "lastSeen": "2026-10-25"
         },
         {
           "id": "VAC2000055590",
@@ -60,12 +60,12 @@
           "location": "40 Wakefield Road, Leeds (LS98 1FD)",
           "salary": null,
           "duration": "",
-          "status": "closing_soon",
-          "closingDate": "2026-10-25",
+          "status": "open",
+          "closingDate": null,
           "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000055590",
           "govVacancyId": "VAC2000055590",
-          "firstSeen": "2026-10-24",
-          "lastSeen": "2026-10-24"
+          "firstSeen": "2026-10-25",
+          "lastSeen": "2026-10-25"
         }
       ]
     },
