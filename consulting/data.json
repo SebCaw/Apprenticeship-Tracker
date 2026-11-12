@@ -1,14 +1,17 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-27T13:51:39Z",
+    "lastUpdated": "2026-11-12T16:29:33Z",
     "version": 4,
     "seenVacancyIds": [
       "VAC2000048729",
       "VAC2000051213",
       "VAC2000059707",
-      "VAC2000059710"
+      "VAC2000059710",
+      "VAC2000061779"
     ],
-    "newSinceLastScrape": []
+    "newSinceLastScrape": [
+      "VAC2000061779"
+    ]
   },
   "interestListings": [],
   "companies": [
@@ -327,21 +330,7 @@
       ],
       "programs": [
         {
-          "id": "VAC2000059707",
-          "name": "Digital &amp; Technology Solutions Degree Apprenticeship - Consulting - Capgemini Invent UK",
-          "standard": "Level 6",
-          "location": "Manchester (M41 7HA) and 1 other location",
-          "salary": null,
-          "duration": "",
-          "status": "open",
-          "closingDate": null,
-          "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000059707",
-          "govVacancyId": "VAC2000059707",
-          "firstSeen": "2026-10-27",
-          "lastSeen": "2026-10-27"
-        },
-        {
-          "id": "VAC2000059707",
+          "id": "VAC2000061779",
           "name": "Digital &amp; Technology Solutions Degree Apprenticeship - Consulting - Capgemini Invent UK",
           "standard": "Level 6",
           "location": "Newcastle Upon Tyne (NE1 6QF) and 1 other location",
@@ -349,10 +338,24 @@
           "duration": "",
           "status": "open",
           "closingDate": null,
-          "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000059707",
-          "govVacancyId": "VAC2000059707",
-          "firstSeen": "2026-10-27",
-          "lastSeen": "2026-10-27"
+          "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000061779",
+          "govVacancyId": "VAC2000061779",
+          "firstSeen": "2026-11-12",
+          "lastSeen": "2026-11-12"
+        },
+        {
+          "id": "VAC2000061779",
+          "name": "Digital &amp; Technology Solutions Degree Apprenticeship - Consulting - Capgemini Invent UK",
+          "standard": "Level 6",
+          "location": "Manchester (M41 7HA) and 1 other location",
+          "salary": null,
+          "duration": "",
+          "status": "open",
+          "closingDate": null,
+          "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000061779",
+          "govVacancyId": "VAC2000061779",
+          "firstSeen": "2026-11-12",
+          "lastSeen": "2026-11-12"
         },
         {
           "id": "VAC2000059710",
@@ -365,8 +368,8 @@
           "closingDate": null,
           "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000059710",
           "govVacancyId": "VAC2000059710",
-          "firstSeen": "2026-10-27",
-          "lastSeen": "2026-10-27"
+          "firstSeen": "2026-11-12",
+          "lastSeen": "2026-11-12"
         }
       ]
     },

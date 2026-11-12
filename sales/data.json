@@ -1,11 +1,28 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-27T13:51:39Z",
+    "lastUpdated": "2026-11-12T16:29:33Z",
     "version": 4,
-    "seenVacancyIds": [],
-    "newSinceLastScrape": []
+    "seenVacancyIds": [
+      "VAC2000063765"
+    ],
+    "newSinceLastScrape": [
+      "VAC2000063765"
+    ]
   },
-  "interestListings": [],
+  "interestListings": [
+    {
+      "id": "VAC2000063765",
+      "company": "AMAZON UK SERVICES LTD.",
+      "title": "Business Analyst Apprentice  (Fixed Term Contract)",
+      "standard": "Level 6",
+      "location": "Worship Street (EC2A 2FA)",
+      "salary": null,
+      "category": "Business",
+      "closingDate": null,
+      "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000063765",
+      "firstSeen": "2026-11-12"
+    }
+  ],
   "companies": [
     {
       "id": "microsoft",
