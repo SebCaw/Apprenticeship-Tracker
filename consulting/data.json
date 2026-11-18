@@ -1,16 +1,17 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-12T16:29:33Z",
+    "lastUpdated": "2026-11-18T16:52:49Z",
     "version": 4,
     "seenVacancyIds": [
       "VAC2000048729",
       "VAC2000051213",
       "VAC2000059707",
       "VAC2000059710",
-      "VAC2000061779"
+      "VAC2000061779",
+      "VAC2000064222"
     ],
     "newSinceLastScrape": [
-      "VAC2000061779"
+      "VAC2000064222"
     ]
   },
   "interestListings": [],
@@ -151,46 +152,46 @@
       ],
       "programs": [
         {
-          "id": "VAC2000051213",
+          "id": "VAC2000064222",
           "name": "Early Years Initial Teacher Training (EYITT) Dulwich Montessori Nursery Apprentice",
           "standard": "Level 6",
           "location": "South Croydon (CR2 0NY) and 2 other locations",
           "salary": null,
           "duration": "",
-          "status": "closing_soon",
-          "closingDate": "2026-10-31",
-          "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000051213",
-          "govVacancyId": "VAC2000051213",
-          "firstSeen": "2026-10-27",
-          "lastSeen": "2026-10-27"
+          "status": "open",
+          "closingDate": null,
+          "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000064222",
+          "govVacancyId": "VAC2000064222",
+          "firstSeen": "2026-11-18",
+          "lastSeen": "2026-11-18"
         },
         {
-          "id": "VAC2000051213",
+          "id": "VAC2000064222",
           "name": "Early Years Initial Teacher Training (EYITT) Dulwich Montessori Nursery Apprentice",
           "standard": "Level 6",
           "location": "22 Dulwich Wood Park (SE19 1HL) and 2 other locations",
           "salary": null,
           "duration": "",
-          "status": "closing_soon",
-          "closingDate": "2026-10-31",
-          "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000051213",
-          "govVacancyId": "VAC2000051213",
-          "firstSeen": "2026-10-27",
-          "lastSeen": "2026-10-27"
+          "status": "open",
+          "closingDate": null,
+          "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000064222",
+          "govVacancyId": "VAC2000064222",
+          "firstSeen": "2026-11-18",
+          "lastSeen": "2026-11-18"
         },
         {
-          "id": "VAC2000051213",
+          "id": "VAC2000064222",
           "name": "Early Years Initial Teacher Training (EYITT) Dulwich Montessori Nursery Apprentice",
           "standard": "Level 6",
           "location": "London (SE21 7HW) and 2 other locations",
           "salary": null,
           "duration": "",
-          "status": "closing_soon",
-          "closingDate": "2026-10-31",
-          "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000051213",
-          "govVacancyId": "VAC2000051213",
-          "firstSeen": "2026-10-27",
-          "lastSeen": "2026-10-27"
+          "status": "open",
+          "closingDate": null,
+          "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000064222",
+          "govVacancyId": "VAC2000064222",
+          "firstSeen": "2026-11-18",
+          "lastSeen": "2026-11-18"
         }
       ]
     },
@@ -340,8 +341,8 @@
           "closingDate": null,
           "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000061779",
           "govVacancyId": "VAC2000061779",
-          "firstSeen": "2026-11-12",
-          "lastSeen": "2026-11-12"
+          "firstSeen": "2026-11-18",
+          "lastSeen": "2026-11-18"
         },
         {
           "id": "VAC2000061779",
@@ -354,8 +355,8 @@
           "closingDate": null,
           "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000061779",
           "govVacancyId": "VAC2000061779",
-          "firstSeen": "2026-11-12",
-          "lastSeen": "2026-11-12"
+          "firstSeen": "2026-11-18",
+          "lastSeen": "2026-11-18"
         },
         {
           "id": "VAC2000059710",
@@ -368,8 +369,8 @@
           "closingDate": null,
           "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000059710",
           "govVacancyId": "VAC2000059710",
-          "firstSeen": "2026-11-12",
-          "lastSeen": "2026-11-12"
+          "firstSeen": "2026-11-18",
+          "lastSeen": "2026-11-18"
         }
       ]
     },

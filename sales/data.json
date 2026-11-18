@@ -1,12 +1,15 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-12T16:29:33Z",
+    "lastUpdated": "2026-11-18T16:52:49Z",
     "version": 4,
     "seenVacancyIds": [
-      "VAC2000063765"
+      "VAC2000063765",
+      "VAC2000064161",
+      "VAC2000064228"
     ],
     "newSinceLastScrape": [
-      "VAC2000063765"
+      "VAC2000064161",
+      "VAC2000064228"
     ]
   },
   "interestListings": [
@@ -20,7 +23,7 @@
       "category": "Business",
       "closingDate": null,
       "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000063765",
-      "firstSeen": "2026-11-12"
+      "firstSeen": "2026-11-18"
     }
   ],
   "companies": [
@@ -380,32 +383,32 @@
       ],
       "programs": [
         {
-          "id": "cisco_sales",
-          "name": "Sales & Customer Success",
+          "id": "VAC2000064161",
+          "name": "Cisco IT Degree Apprentice (Level 6)",
           "standard": "Level 6",
-          "location": "Feltham / London",
-          "salary": "~£24,000",
-          "duration": "3 years",
-          "status": "not_open",
+          "location": "Greater London (TW14 8HA)",
+          "salary": null,
+          "duration": "",
+          "status": "open",
           "closingDate": null,
-          "applyUrl": null,
-          "govVacancyId": null,
-          "firstSeen": null,
-          "lastSeen": null
+          "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000064161",
+          "govVacancyId": "VAC2000064161",
+          "firstSeen": "2026-11-18",
+          "lastSeen": "2026-11-18"
         },
         {
-          "id": "cisco_bd",
-          "name": "Business Development",
+          "id": "VAC2000064228",
+          "name": "Cisco Sales Degree Apprentice (Level 6)",
           "standard": "Level 6",
-          "location": "London",
-          "salary": "~£24,000",
-          "duration": "3 years",
-          "status": "not_open",
+          "location": "Greater London (TW14 8HA)",
+          "salary": null,
+          "duration": "",
+          "status": "open",
           "closingDate": null,
-          "applyUrl": null,
-          "govVacancyId": null,
-          "firstSeen": null,
-          "lastSeen": null
+          "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000064228",
+          "govVacancyId": "VAC2000064228",
+          "firstSeen": "2026-11-18",
+          "lastSeen": "2026-11-18"
         }
       ]
     },
