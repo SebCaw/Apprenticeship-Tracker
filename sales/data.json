@@ -1,16 +1,13 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-18T16:52:49Z",
+    "lastUpdated": "2026-11-19T16:59:24Z",
     "version": 4,
     "seenVacancyIds": [
       "VAC2000063765",
       "VAC2000064161",
       "VAC2000064228"
     ],
-    "newSinceLastScrape": [
-      "VAC2000064161",
-      "VAC2000064228"
-    ]
+    "newSinceLastScrape": []
   },
   "interestListings": [
     {
@@ -23,7 +20,7 @@
       "category": "Business",
       "closingDate": null,
       "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000063765",
-      "firstSeen": "2026-11-18"
+      "firstSeen": "2026-11-19"
     }
   ],
   "companies": [
@@ -393,8 +390,8 @@
           "closingDate": null,
           "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000064161",
           "govVacancyId": "VAC2000064161",
-          "firstSeen": "2026-11-18",
-          "lastSeen": "2026-11-18"
+          "firstSeen": "2026-11-19",
+          "lastSeen": "2026-11-19"
         },
         {
           "id": "VAC2000064228",
@@ -407,8 +404,8 @@
           "closingDate": null,
           "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000064228",
           "govVacancyId": "VAC2000064228",
-          "firstSeen": "2026-11-18",
-          "lastSeen": "2026-11-18"
+          "firstSeen": "2026-11-19",
+          "lastSeen": "2026-11-19"
         }
       ]
     },
