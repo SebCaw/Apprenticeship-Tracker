@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-20T16:35:47Z",
+    "lastUpdated": "2026-11-28T16:33:16Z",
     "version": 4,
     "seenVacancyIds": [
       "VAC2000048729",
@@ -8,9 +8,12 @@
       "VAC2000059707",
       "VAC2000059710",
       "VAC2000061779",
-      "VAC2000064222"
+      "VAC2000064222",
+      "VAC2000065348"
     ],
-    "newSinceLastScrape": []
+    "newSinceLastScrape": [
+      "VAC2000065348"
+    ]
   },
   "interestListings": [],
   "companies": [
@@ -150,6 +153,20 @@
       ],
       "programs": [
         {
+          "id": "VAC2000065348",
+          "name": "Apprentice Dispensing Optician (Funded Level 6 Apprenticeship)",
+          "standard": "Level 6",
+          "location": "WINSCOMBE (BS25 1AQ)",
+          "salary": null,
+          "duration": "",
+          "status": "open",
+          "closingDate": "2026-12-20",
+          "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000065348",
+          "govVacancyId": "VAC2000065348",
+          "firstSeen": "2026-11-28",
+          "lastSeen": "2026-11-28"
+        },
+        {
           "id": "VAC2000064222",
           "name": "Early Years Initial Teacher Training (EYITT) Dulwich Montessori Nursery Apprentice",
           "standard": "Level 6",
@@ -160,8 +177,8 @@
           "closingDate": null,
           "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000064222",
           "govVacancyId": "VAC2000064222",
-          "firstSeen": "2026-11-20",
-          "lastSeen": "2026-11-20"
+          "firstSeen": "2026-11-28",
+          "lastSeen": "2026-11-28"
         },
         {
           "id": "VAC2000064222",
@@ -174,8 +191,8 @@
           "closingDate": null,
           "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000064222",
           "govVacancyId": "VAC2000064222",
-          "firstSeen": "2026-11-20",
-          "lastSeen": "2026-11-20"
+          "firstSeen": "2026-11-28",
+          "lastSeen": "2026-11-28"
         },
         {
           "id": "VAC2000064222",
@@ -188,8 +205,8 @@
           "closingDate": null,
           "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000064222",
           "govVacancyId": "VAC2000064222",
-          "firstSeen": "2026-11-20",
-          "lastSeen": "2026-11-20"
+          "firstSeen": "2026-11-28",
+          "lastSeen": "2026-11-28"
         }
       ]
     },
@@ -339,8 +356,8 @@
           "closingDate": null,
           "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000061779",
           "govVacancyId": "VAC2000061779",
-          "firstSeen": "2026-11-20",
-          "lastSeen": "2026-11-20"
+          "firstSeen": "2026-11-28",
+          "lastSeen": "2026-11-28"
         },
         {
           "id": "VAC2000061779",
@@ -353,8 +370,8 @@
           "closingDate": null,
           "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000061779",
           "govVacancyId": "VAC2000061779",
-          "firstSeen": "2026-11-20",
-          "lastSeen": "2026-11-20"
+          "firstSeen": "2026-11-28",
+          "lastSeen": "2026-11-28"
         },
         {
           "id": "VAC2000059710",
@@ -367,8 +384,8 @@
           "closingDate": null,
           "applyUrl": "https://www.findapprenticeship.service.gov.uk/apprenticeship/VAC2000059710",
           "govVacancyId": "VAC2000059710",
-          "firstSeen": "2026-11-20",
-          "lastSeen": "2026-11-20"
+          "firstSeen": "2026-11-28",
+          "lastSeen": "2026-11-28"
         }
       ]
     },
